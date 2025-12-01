@@ -1,0 +1,30 @@
+[
+    {
+        "week":"Weekends Deals",
+        "name":"Blueberries",
+        "discription":"Fresh and juicy blueberries, perfect for snacking or adding to your favorite recipes. Packed with antioxidants and vitamins.",
+        "price":"8",
+        "img":"images/limited-deal/blue.png"
+    },
+    {
+        "week":"Weekends Deals",
+        "name":"Fresh Coconuts",
+        "discription":"Fresh and healthy coconuts directly from the farm to your doorstep. Rich in nutrients and perfect for hydration.",
+        "price":"10",
+        "img":"images/limited-deal/cha.png"
+    },
+    {
+        "week":"Weekends Deals",
+        "name":"Pineapple",
+        "discription":"Sweet and tangy pineapples, bursting with tropical flavor. Great for smoothies, desserts, or enjoying on their own.",
+        "price":"12",
+        "img":"images/limited-deal/pinaple.png"
+    },
+    {
+        "week":"Weekends Deals",
+        "name":"Strawberries",
+        "discription":"Fresh and ripe strawberries, perfect for snacking or adding to your favorite recipes. Packed with vitamins and antioxidants.",
+        "price":"9",
+        "img":"images/limited-deal/pinaple.png"
+    }
+]

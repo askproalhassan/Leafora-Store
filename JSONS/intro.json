@@ -1,0 +1,20 @@
+[
+  {
+    "images": "images/1.jpg",
+    "title": "We Provide <br> Fresh Procey",
+    "about": "Good Slogens for food delivery business are the key to attract <br> more customes and earn more money and special food",
+    "btn": "Explore Now"
+  },
+  {
+    "images": "images/2.png",
+    "title": "Delicious Fruit <br> Delivered To You",
+    "about": "We deliver fresh and delicious fruits right to your doorstep. <br> Enjoy the taste of nature with our wide variety of fruits.",
+    "btn": "Explore Now"
+  },
+  {
+    "images": "images/3.jpg",
+    "title": "Making` sure to deliver <br> your food on time",
+    "about": "We make sure that your food is delivered on time, every time. <br> Our delivery partners are trained to handle your food with care.",
+    "btn": "Explore Now"
+  }
+]

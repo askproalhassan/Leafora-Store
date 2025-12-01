@@ -1,0 +1,43 @@
+[
+    {
+        "image": "images/carocel-image/strawb.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "120",
+        "name": "Fresh Strawberries"
+    },    {
+        "image": "images/carocel-image/salmon.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "150",
+        "name": "Ripe Mangoes"
+    },
+    {
+        "image": "images/carocel-image/salmon.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "80",
+        "name": "Organic Bananas"
+    },
+    {
+        "image": "images/carocel-image/cabbage.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "200",
+        "name": "Seedless Grapes"
+    },
+    {
+        "image": "images/carocel-image/gran.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "90",
+        "name": "Juicy Watermelons"
+    },
+    {
+        "image": "images/carocel-image/gran.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "90",
+        "name": "Juicy Watermelons"
+    },
+    {
+        "image": "images/carocel-image/gran.jpg",
+        "icon": "<i class='bx bxs-store'></i>",
+        "price": "90",
+        "name": "Juicy Watermelons"
+    }
+]
