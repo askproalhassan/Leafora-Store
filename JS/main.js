@@ -222,3 +222,50 @@ function weekendDeals() {
   });
 }
 weekendDeals();
+
+// <!-- -------------------------------our produt quality -------------------------------->
+function produtQuality(){
+  const quality = document.querySelector('.product-quality-carocel');
+  const qualityP = document.querySelector('.product-quality');
+
+  fetch("JSONS/qualityProduct.json")
+    .then(res => res.json())
+    .then(data => {data.forEach(element =>{
+      const qualityList = document.createElement('div');
+      qualityList.className = 'quality-list';
+      qualityList.innerHTML = `
+                                <div class = 'lists'>
+                                  <div class='bord'>
+                                  <img src = '${element.image}' class='quality-image'>
+                                  </div>
+                                  <h3 class = 'quality-title'>${element.title}</h3>
+                                  <p class = 'quality-about'> ${element.about}</p>
+                                </div>  
+                              `
+        quality.append(qualityList);
+    });
+    // moving middle text to center
+    const qualityTitle = document.querySelectorAll('.quality-title')
+    qualityTitle.forEach((element,index)=>{
+      if(index === 1){
+        element.style.marginLeft = '-30px'
+      }
+    })
+    // changing border position to bottom
+    const bord = document.querySelectorAll('.bord');
+    bord.forEach((element,index) =>{
+      if(index === 1 ){
+        element.style.borderTop='5px dashed chocolate'
+        element.style.borderBottom='none'
+        
+      }
+    })
+
+    // creating ling through the carocel
+    const dashes = document.createElement('div');
+    dashes.className = 'dashes';
+    qualityP.append(dashes);
+
+
+  })
+}produtQuality()
