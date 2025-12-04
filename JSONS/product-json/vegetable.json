@@ -1,8 +1,39 @@
 [
     {
-
+        "image":"images/product-images/cabbages.png",
+        "name":"Wrapped Cabbage",
+        "rate":"⭐⭐⭐⭐",
+        "price":"120"
     },
     {
-        
+        "image":"images/product-images/onions.png",
+        "name":" Fresh Onion ",
+        "rate":"⭐⭐⭐",
+        "price":"100"
+    },
+    {
+        "image":"images/product-images/maize.png",
+        "name":"Maize",
+        "rate":"⭐⭐⭐⭐⭐",
+        "price":"150"
+    },
+    {
+        "image":"images/product-images/carrot.png",
+        "name":"Carrot",
+        "rate":"⭐⭐⭐",
+        "price":"90"
+    },
+    {
+        "image":"images/product-images/green.png",
+        "name":"Green Papper",
+        "rate":"⭐⭐⭐⭐",
+        "price":"130"
+    },
+    {
+        "image":"images/product-images/tree.png",
+        "name":"GreenLawn",
+        "rate":"⭐⭐⭐⭐",
+        "price":"130"
     }
+
 ]

@@ -19,6 +19,11 @@ const dropdown = () => {
 };
 dropdown();
 
+cart()
+function cart(){
+  
+}
+
 //  fetching top categories
 function topCategories() {
   const prod = document.querySelector(".prod");
@@ -269,3 +274,93 @@ function produtQuality(){
 
   })
 }produtQuality()
+
+function showingProductCategories(){
+  const productBtn =document.querySelectorAll('.product-btn');
+  let product = [];
+  let currentProduct = 0; 
+  const items = 8; 
+
+  productBtn.forEach((btn,index) =>{
+     btn.addEventListener('click',()=>{
+      // if(index === 0){
+      //   btn[0].style.color = 'green'
+      //   btn[1].style.color = 'black'
+      //   btn[2].style.color = 'black'
+      //   btn[3].style.color = 'black'
+      // }
+      // else if(index === 1){
+      //   btn[0].style.color = 'black'
+      //   btn[1].style.color = 'green'
+      //   btn[2].style.color = 'black'
+      //   btn[3].style.color = 'black'
+      // }
+      // else if(index === 2){
+      //   btn[0].style.color = 'black'
+      //   btn[1].style.color = 'black'
+      //   btn[2].style.color = 'green'
+      //   btn[3].style.color = 'black'
+      // }
+      // else if(index === 3){
+      //   btn[0].style.color = 'black'
+      //   btn[1].style.color = 'black'
+      //   btn[2].style.color = 'black'
+      //   btn[3].style.color = 'green'
+      // }
+        const file = btn.dataset.json;
+        fetch(file)
+          .then(response => response.json())
+          .then(data => {
+            // displaying all prodcut 
+            product = data
+            console.log(file)
+            // reset  to first 8 
+            currentProduct = '';
+            showingPage()
+            showPagination()
+          })
+          .catch(error => console.log(error))
+        })
+        function showingPage(){
+          let allProduct = document.querySelector('.all-product');
+          let start = currentProduct * items;
+          let end = start + currentProduct;
+          allProduct.innerHTML = '';
+          // displaying only 8 items
+          let item = product
+          item.forEach(element=>{
+            allProduct.innerHTML+= 
+            `<div class = 'product-list'>
+              <i class='bx bxs-heart'></i>
+              <div class='ima'>
+                <img src = '${element.image}' class ='product-image'>
+              </div>
+              <h3 class='product-rate'>${element.rate}  <span>4.5</span></h3>
+              <h3 class='product-name'>${element.name}</h3>
+              <h3 class='product-price'>GH ${element.price}.04</h3>
+
+              <div class='show-likes'>
+              <i class='bx bx-copy' ></i>
+              <i class='bx bx-refresh'></i>
+              <i class='bx bx-cart'></i>
+              </div>
+            </div>`     
+          })
+      }
+      function showPagination(){
+        const pageBtn = document.querySelector('.pag-btn');
+        pageBtn.innerHTML = '';
+        let totalPage = Math.ceil(product.length / items) 
+
+        for(let i = 0;i < totalPage; i++){
+          pageBtn.innerHTML += `<button class='page-btn' data-page = '${i}'></button>`
+        }
+        document.querySelectorAll('.page-btn').forEach(btn=>
+          btn.addEventListener('click',()=>{
+            currentProduct = Number(btn.dataset.page);
+            showingPage()
+          })
+        )
+      }
+  })
+}showingProductCategories()

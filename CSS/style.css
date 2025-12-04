@@ -745,7 +745,6 @@ img.c-img {
   margin-top: 60px;
   border: 1px solid ;
   background: rgba(167, 235, 247, 0.363);
-  height: 70vh;
 }
 .product-intro{
   text-align: center;
@@ -756,17 +755,105 @@ img.c-img {
 
 .list-of-product{
   margin-top: 30px;
-}
-ul.productlist{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
-ul.productlist li{
-  list-style: none;
+.product-btn{
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  background: transparent;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 15px;
-  font-family: monospace;
   cursor: pointer;
+  transition: all .4s ;
+}
+.product-btn:hover{
+  color: rgb(30, 197, 30);
+}
+.page-btn{
+  background-color: rgb(8, 177, 36);
+}
+/* styling card */
+.all-product{
+  display: grid;
+  grid-template-columns: 1px 1px 1px 1px;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 180px;
+  column-gap: 290px;
+  row-gap: 20px;
+}
+.product-list{
+  position: relative;
+  border-radius: 10px;
+  width: 210px;
+  height: 300px;
+  background: white;
+  padding: 30px 25px;
+  box-shadow: 2px 4px 5px rgb(233, 230, 230);
+}
+.product-list .bxs-heart{
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+  color: rgb(189, 189, 194);
+  transition: all .3s ease;
+}
+.product-list .bxs-heart:hover{
+  color: rgb(22, 22, 22);
+}
+.product-image{
+  width: 170px;
+}
+.ima{
+  width: 170px;
+  height: 230px;
+  position: relative;
+}
+.product-rate{
+  font-size: 12px;
+  color: #b6b1b1;
+  display: flex;
+  gap: 20px;
+
+  span{
+    font-size: 16px;
+  }
+}
+.product-name{
+  font-size: 19px;
+  margin-top: 8px;
+  font-weight: 200;
+  font-family: 'poppin',sans-serif;
+}
+.product-price{
+  font-size: 19px;
+  margin-top: 17px;
+  font-family: monospace;
+  color: green;
+}
+
+.show-likes{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  i{
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    background: #e7e4e4ab;
+    transition: all .6s ease;
+  }
+  i:hover{
+    border-radius: 50%;
+    background-color: rgb(18, 223, 18);
+    color: white;
+  }
 }
