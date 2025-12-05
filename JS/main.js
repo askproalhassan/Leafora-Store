@@ -349,30 +349,30 @@ function showingProductCategories() {
                 <i class='bx bx-cart'></i>
               </div>
             </div>`;
-          });
-          const produtName = document.querySelectorAll(".product-name");
+      });
       // adding likes to nav like
-      console.log(produtName)
-      produtName.forEach(name => {
+      const produtName = document.querySelectorAll(".product-name");
+      console.log(produtName);
+      produtName.forEach((name) => {
         // console.log(name);
-      let liking = document.querySelectorAll(".bxs-heart");
-      likeCount = 0;
-      liking.forEach(like => {
-        like.addEventListener("click", () => {
-          if (like.classList.contains("active1")) {
-            likeCount--;
-            like.classList.remove("active1");
-            like.style.color = "";
-          } else {
-            likeCount++;
-            like.classList.add("active1");
-            like.style.color = "black";
-            console.log(name);
-          }
-          localStorage.setItem("like", likeCount);
+        let liking = document.querySelectorAll(".bxs-heart");
+        likeCount = 0;
+        liking.forEach((like) => {
+          like.addEventListener("click", () => {
+            if (like.classList.contains("active1")) {
+              likeCount--;
+              like.classList.remove("active1");
+              like.style.color = "";
+            } else {
+              likeCount++;
+              like.classList.add("active1");
+              like.style.color = "black";
+              console.log(name);
+            }
+            localStorage.setItem("like", likeCount);
+          });
         });
       });
-            });
 
       // adding carts to the nav cart
       let carts = document.querySelectorAll(".bx-cart");
