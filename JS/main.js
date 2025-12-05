@@ -18,11 +18,21 @@ const dropdown = () => {
   });
 };
 dropdown();
-
-cart()
-function cart(){
-  
+function cart() {
+  const ic = document.querySelectorAll(".ic i");
+  ic.forEach((el, ind) => {
+    const collectedNum = document.createElement("div");
+    collectedNum.className = "collected-num";
+    collectedNum.innerHTML = "";
+    if (ind === 1) {
+      collectedNum.innerHTML = localStorage.getItem("cart");
+    } else if (ind === 0) {
+      collectedNum.innerHTML = localStorage.getItem("like");
+    }
+    el.append(collectedNum);
+  });
 }
+cart();
 
 //  fetching top categories
 function topCategories() {
@@ -183,24 +193,20 @@ function weekendDeals() {
                         </dv>`;
         dealCarocel.append(dealItem);
       });
-      const dealborder = document.querySelectorAll('.deal-border');
-      dealborder.forEach((element,index)=>{
-        if(index === 0){
-          element.style.background = 'rgba(0, 0, 255, 0.205)'
+      const dealborder = document.querySelectorAll(".deal-border");
+      dealborder.forEach((element, index) => {
+        if (index === 0) {
+          element.style.background = "rgba(0, 0, 255, 0.205)";
+        } else if (index === 1) {
+          element.style.background = "rgba(85, 189, 85, 0.22)";
+        } else if (index === 2) {
+          element.style.background = "rgba(255, 255, 0, 0.16)";
+        } else {
+          element.style.background = "rgba(255, 0, 64, 0.16)";
         }
-        else if(index === 1){
-          element.style.background = 'rgba(85, 189, 85, 0.22)'
-        }
-        else if(index === 2){
-          element.style.background = 'rgba(255, 255, 0, 0.16)'
-        }
-        else{
-          element.style.background = 'rgba(255, 0, 64, 0.16)'
-        }
-      })
-      
+      });
 
-// ===============time counddown===============================
+      // ===============time counddown===============================
 
       // const day = document.querySelector(".day");
       // const hour = document.querySelector(".hour");
@@ -229,16 +235,17 @@ function weekendDeals() {
 weekendDeals();
 
 // <!-- -------------------------------our produt quality -------------------------------->
-function produtQuality(){
-  const quality = document.querySelector('.product-quality-carocel');
-  const qualityP = document.querySelector('.product-quality');
+function produtQuality() {
+  const quality = document.querySelector(".product-quality-carocel");
+  const qualityP = document.querySelector(".product-quality");
 
   fetch("JSONS/qualityProduct.json")
-    .then(res => res.json())
-    .then(data => {data.forEach(element =>{
-      const qualityList = document.createElement('div');
-      qualityList.className = 'quality-list';
-      qualityList.innerHTML = `
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((element) => {
+        const qualityList = document.createElement("div");
+        qualityList.className = "quality-list";
+        qualityList.innerHTML = `
                                 <div class = 'lists'>
                                   <div class='bord'>
                                   <img src = '${element.image}' class='quality-image'>
@@ -246,43 +253,41 @@ function produtQuality(){
                                   <h3 class = 'quality-title'>${element.title}</h3>
                                   <p class = 'quality-about'> ${element.about}</p>
                                 </div>  
-                              `
+                              `;
         quality.append(qualityList);
+      });
+      // moving middle text to center
+      const qualityTitle = document.querySelectorAll(".quality-title");
+      qualityTitle.forEach((element, index) => {
+        if (index === 1) {
+          element.style.marginLeft = "-30px";
+        }
+      });
+      // changing border position to bottom
+      const bord = document.querySelectorAll(".bord");
+      bord.forEach((element, index) => {
+        if (index === 1) {
+          element.style.borderTop = "5px dashed chocolate";
+          element.style.borderBottom = "none";
+        }
+      });
+
+      // creating ling through the carocel
+      const dashes = document.createElement("div");
+      dashes.className = "dashes";
+      qualityP.append(dashes);
     });
-    // moving middle text to center
-    const qualityTitle = document.querySelectorAll('.quality-title')
-    qualityTitle.forEach((element,index)=>{
-      if(index === 1){
-        element.style.marginLeft = '-30px'
-      }
-    })
-    // changing border position to bottom
-    const bord = document.querySelectorAll('.bord');
-    bord.forEach((element,index) =>{
-      if(index === 1 ){
-        element.style.borderTop='5px dashed chocolate'
-        element.style.borderBottom='none'
-        
-      }
-    })
+}
+produtQuality();
 
-    // creating ling through the carocel
-    const dashes = document.createElement('div');
-    dashes.className = 'dashes';
-    qualityP.append(dashes);
-
-
-  })
-}produtQuality()
-
-function showingProductCategories(){
-  const productBtn =document.querySelectorAll('.product-btn');
+function showingProductCategories() {
+  const productBtn = document.querySelectorAll(".product-btn");
   let product = [];
-  let currentProduct = 0; 
-  const items = 8; 
+  let currentProduct = 0;
+  const items = 8;
 
-  productBtn.forEach((btn,index) =>{
-     btn.addEventListener('click',()=>{
+  productBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
       // if(index === 0){
       //   btn[0].style.color = 'green'
       //   btn[1].style.color = 'black'
@@ -307,30 +312,29 @@ function showingProductCategories(){
       //   btn[2].style.color = 'black'
       //   btn[3].style.color = 'green'
       // }
-        const file = btn.dataset.json;
-        fetch(file)
-          .then(response => response.json())
-          .then(data => {
-            // displaying all prodcut 
-            product = data
-            console.log(file)
-            // reset  to first 8 
-            currentProduct = '';
-            showingPage()
-            showPagination()
-          })
-          .catch(error => console.log(error))
+      const file = btn.dataset.json;
+      fetch(file)
+        .then((response) => response.json())
+        .then((data) => {
+          // displaying all prodcut
+          product = data;
+          console.log(file);
+          // reset  to first 8
+          currentProduct = 0;
+          showingPage();
+          showPagination();
         })
-        function showingPage(){
-          let allProduct = document.querySelector('.all-product');
-          let start = currentProduct * items;
-          let end = start + currentProduct;
-          allProduct.innerHTML = '';
-          // displaying only 8 items
-          let item = product
-          item.forEach(element=>{
-            allProduct.innerHTML+= 
-            `<div class = 'product-list'>
+        .catch((error) => console.log(error));
+    });
+    function showingPage() {
+      let allProduct = document.querySelector(".all-product");
+      let start = currentProduct * items;
+      let end = start + items;
+      allProduct.innerHTML = "";
+      // displaying only 8 items
+      let item = product;
+      item.forEach((element) => {
+        allProduct.innerHTML += `<div class = 'product-list'>
               <i class='bx bxs-heart'></i>
               <div class='ima'>
                 <img src = '${element.image}' class ='product-image'>
@@ -340,27 +344,73 @@ function showingProductCategories(){
               <h3 class='product-price'>GH ${element.price}.04</h3>
 
               <div class='show-likes'>
-              <i class='bx bx-copy' ></i>
-              <i class='bx bx-refresh'></i>
-              <i class='bx bx-cart'></i>
+                <i class='bx bx-copy' ></i>
+                <i class='bx bx-refresh'></i>
+                <i class='bx bx-cart'></i>
               </div>
-            </div>`     
-          })
-      }
-      function showPagination(){
-        const pageBtn = document.querySelector('.pag-btn');
-        pageBtn.innerHTML = '';
-        let totalPage = Math.ceil(product.length / items) 
+            </div>`;
+          });
+          const produtName = document.querySelectorAll(".product-name");
+      // adding likes to nav like
+      console.log(produtName)
+      produtName.forEach(name => {
+        // console.log(name);
+      let liking = document.querySelectorAll(".bxs-heart");
+      likeCount = 0;
+      liking.forEach(like => {
+        like.addEventListener("click", () => {
+          if (like.classList.contains("active1")) {
+            likeCount--;
+            like.classList.remove("active1");
+            like.style.color = "";
+          } else {
+            likeCount++;
+            like.classList.add("active1");
+            like.style.color = "black";
+            console.log(name);
+          }
+          localStorage.setItem("like", likeCount);
+        });
+      });
+            });
 
-        for(let i = 0;i < totalPage; i++){
-          pageBtn.innerHTML += `<button class='page-btn' data-page = '${i}'></button>`
-        }
-        document.querySelectorAll('.page-btn').forEach(btn=>
-          btn.addEventListener('click',()=>{
-            currentProduct = Number(btn.dataset.page);
-            showingPage()
-          })
-        )
+      // adding carts to the nav cart
+      let carts = document.querySelectorAll(".bx-cart");
+      let count = 0;
+      carts.forEach((cart) => {
+        cart.addEventListener("click", () => {
+          if (cart.classList.contains("active")) {
+            count--;
+            cart.classList.remove("active");
+            cart.style.background = "";
+            cart.style.color = "";
+          } else {
+            count++;
+            cart.classList.add("active");
+            cart.style.background = "rgb(18, 223, 18)";
+            cart.style.color = "white";
+          }
+
+          localStorage.setItem("cart", count);
+        });
+      });
+    }
+
+    function showPagination() {
+      const pageBtn = document.querySelector(".pag-btn");
+      pageBtn.innerHTML = "";
+      let totalPage = Math.ceil(product.length / items);
+
+      for (let i = 0; i < totalPage; i++) {
+        pageBtn.innerHTML += `<button class='page-btn' data-page = '${i}'></button>`;
       }
-  })
-}showingProductCategories()
+      document.querySelectorAll(".page-btn").forEach((btn) =>
+        btn.addEventListener("click", () => {
+          currentProduct = Number(btn.dataset.page);
+          showingPage();
+        })
+      );
+    }
+  });
+}
+showingProductCategories();
