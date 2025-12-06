@@ -34,6 +34,36 @@
         "name":"GreenLawn",
         "rate":"⭐⭐⭐⭐",
         "price":"130"
+    },
+    {
+        "image":"images/product-images/galick.png",
+        "name":"Galick",
+        "rate":"⭐⭐⭐⭐",
+        "price":"70"
+    },
+    {
+        "image":"images/product-images/pepper.png",
+        "name":"Pepper",
+        "rate":"⭐⭐⭐⭐",
+        "price":"70"
+    },
+    {
+        "image":"images/product-images/tomato.png",
+        "name":"Tomato",
+        "rate":"⭐⭐⭐⭐",
+        "price":"70"
+    },
+    {
+        "image":"images/product-images/lettuce.png",
+        "name":"Lettuce",
+        "rate":"⭐⭐⭐⭐",
+        "price":"70"
+    },
+    {
+        "image":"images/product-images/cabbage.png",
+        "name":"Fresh Cabbage",
+        "rate":"⭐⭐⭐⭐",
+        "price":"70"
     }
 
 ]

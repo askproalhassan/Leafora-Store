@@ -140,7 +140,7 @@ function offer() {
 }
 offer();
 
-// animating viewpoint on scroll
+// ===================================animating viewpoint on scroll================================
 const scroll = () => {
   const topOffer = document.querySelector(".top-offer");
   const carocel = document.querySelector(".carocel");
@@ -159,7 +159,7 @@ const scroll = () => {
 };
 scroll();
 
-// fecthing weekend deals
+// ================================================fecthing weekend deals==============================================================
 function weekendDeals() {
   const dealCarocel = document.querySelector(".deal-carocel");
   fetch("JSONS/limited-deal.json")
@@ -221,7 +221,7 @@ function weekendDeals() {
     .catch((error) => {
       console.error(error);
     });
-  // scrolling the carocel when either of the btn is click
+  // scrolling the carocel when either of the btn is click======================================
   const leftArrow = document.querySelector(".bx-left-arrow-alt");
   const rightArrow = document.querySelector(".bx-right-arrow-alt");
 
@@ -263,7 +263,7 @@ function produtQuality() {
           element.style.marginLeft = "-30px";
         }
       });
-      // changing border position to bottom
+      // changing border position to bottom===========================
       const bord = document.querySelectorAll(".bord");
       bord.forEach((element, index) => {
         if (index === 1) {
@@ -272,7 +272,7 @@ function produtQuality() {
         }
       });
 
-      // creating ling through the carocel
+      // creating ling through the carocel==========================================
       const dashes = document.createElement("div");
       dashes.className = "dashes";
       qualityP.append(dashes);
@@ -332,7 +332,7 @@ function showingProductCategories() {
       let end = start + items;
       allProduct.innerHTML = "";
       // displaying only 8 items
-      let item = product;
+      let item = product.slice(start,end);
       item.forEach((element) => {
         allProduct.innerHTML += `<div class = 'product-list'>
               <i class='bx bxs-heart'></i>
@@ -350,12 +350,12 @@ function showingProductCategories() {
               </div>
             </div>`;
       });
-      // adding likes to nav like
-      const produtName = document.querySelectorAll(".product-name");
-      console.log(produtName);
-      produtName.forEach((name) => {
-        // console.log(name);
-        let liking = document.querySelectorAll(".bxs-heart");
+      // =========================================adding likes to nav like=================================
+      const productList = document.querySelectorAll(".product-list");
+      productList.forEach(productard=>{
+
+      const produtName = productard.querySelector(".product-name").innerText;
+        let liking = productard.querySelectorAll(".bxs-heart");
         likeCount = 0;
         liking.forEach((like) => {
           like.addEventListener("click", () => {
@@ -363,19 +363,18 @@ function showingProductCategories() {
               likeCount--;
               like.classList.remove("active1");
               like.style.color = "";
+              console.log('you unliked',produtName);
             } else {
               likeCount++;
               like.classList.add("active1");
               like.style.color = "black";
-              console.log(name);
+              console.log('you liked',produtName);
             }
             localStorage.setItem("like", likeCount);
           });
         });
-      });
-
-      // adding carts to the nav cart
-      let carts = document.querySelectorAll(".bx-cart");
+      // =================================================adding carts to the nav cart===========================================
+      let carts = productard.querySelectorAll(".bx-cart");
       let count = 0;
       carts.forEach((cart) => {
         cart.addEventListener("click", () => {
@@ -384,16 +383,20 @@ function showingProductCategories() {
             cart.classList.remove("active");
             cart.style.background = "";
             cart.style.color = "";
+            console.log('you removed cart',produtName)
           } else {
             count++;
             cart.classList.add("active");
             cart.style.background = "rgb(18, 223, 18)";
             cart.style.color = "white";
+            console.log('you cart',produtName)
           }
 
           localStorage.setItem("cart", count);
         });
       });
+      })
+
     }
 
     function showPagination() {
@@ -414,3 +417,6 @@ function showingProductCategories() {
   });
 }
 showingProductCategories();
+
+//---------------------------------------- fetching before payment----------------------
+
