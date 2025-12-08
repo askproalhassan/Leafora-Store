@@ -2,26 +2,26 @@
     {
         "image": "images/organic v.png",
         "name": "Organic Vegetables",
-        "about": "More than 20 difference vegetable"
+        "about": "More than 20 difference type  vegetable"
     },
     {
         "image": "images/fresh f.png",
-        "name": "Organic Vegetables",
-        "about": "More than 20 difference vegetable"
+        "name": "Fresh Fruit",
+        "about": "More than 20 difference types of fruit  "
     },
     {
         "image": "images/drink.png",
-        "name": "Organic Vegetables",
-        "about": "More than 20 difference vegetable"
+        "name": "Drink and Julce",
+        "about": "Fruit julce and carbonated soft drink"
     },
     {
         "image": "images/salmon.png",
-        "name": "Organic Vegetables",
-        "about": "More than 20 difference vegetable"
+        "name": "Salmos",
+        "about": "Get the freshes salmon ocean meat"
     },
     {
         "image": "images/bee.png",
-        "name": "Organic Vegetables",
-        "about": "More than 20 difference vegetable"
+        "name": "Bee Products",
+        "about": "Soften you teast with fresh  hanies"
     }
 ]

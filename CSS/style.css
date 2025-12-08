@@ -62,7 +62,7 @@ ul.dropdown {
   transform: rotate(90deg);
 }
 
-ul.dropdown .show {
+.show{
   display: flex;
 }
 
@@ -116,12 +116,12 @@ input.search {
   margin-top: 10px;
   margin-right: -70px;
 }
-.ic i{
+.ic i {
   position: relative;
   cursor: pointer;
 }
 /* litte numbers uptop */
-.collected-num{
+.collected-num {
   position: absolute;
   top: -5px;
   right: -4px;
@@ -134,7 +134,7 @@ input.search {
   text-align: center;
   border-radius: 50%;
   background: rgb(60, 255, 0);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 /* location */
 .info-bar {
@@ -159,12 +159,15 @@ input.search {
   font-family: "poppin", sans-serif;
   color: rgb(9, 43, 9);
   cursor: pointer;
+  display: flex;
+  gap: 4px;
 }
 
 .my-info i,
 .my-location i {
-  color: green;
+  color: rgb(7, 61, 7);
   font-size: 20px;
+  margin-top: -1px;
 }
 
 /* -------------------------------- intro-----------------------------------------*/
@@ -569,7 +572,7 @@ img.c-img {
   border-radius: 50%;
   text-align: center;
 }
-.timmer h4 span{
+.timmer h4 span {
   font-size: 17px;
 }
 .deal-week {
@@ -578,17 +581,17 @@ img.c-img {
   color: black;
   text-transform: uppercase;
 }
-.deal-name{
+.deal-name {
   margin-top: 34px;
   font-size: 26px;
   font-family: monospace;
 }
-.deal-discripton{
+.deal-discripton {
   margin-top: 10px;
   font-size: 15px;
   color: rgb(93, 94, 95);
 }
-.deal-price{
+.deal-price {
   margin-top: 20px;
   font-size: 25px;
 }
@@ -599,7 +602,7 @@ img.c-img {
   bottom: 10px;
   right: -70px;
 }
-.shop{
+.shop {
   margin-top: 30px;
   padding: 14px 65px 14px 20px;
   font-size: 15px;
@@ -611,8 +614,8 @@ img.c-img {
   position: relative;
   z-index: 1;
 }
-.shop::after{
-  content: '';
+.shop::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -622,22 +625,20 @@ img.c-img {
   width: 0;
   height: 100%;
   z-index: -1;
-  transition: all .3s linear;
- 
-
+  transition: all 0.3s linear;
 }
 
-.shop:hover::after{
+.shop:hover::after {
   width: 100%;
-  
-  .shop i{
-  background: rgb(10, 214, 10);
+
+  .shop i {
+    background: rgb(10, 214, 10);
   }
 }
-.shop:hover{
+.shop:hover {
   color: black;
 }
-.shop i{
+.shop i {
   position: absolute;
   right: 10px;
   bottom: 5px;
@@ -648,7 +649,7 @@ img.c-img {
   z-index: 1;
 }
 /* arrows */
-.arrows{
+.arrows {
   position: absolute;
   left: 30%;
   top: 220%;
@@ -657,7 +658,7 @@ img.c-img {
   gap: 870px;
   justify-content: space-between;
 }
-.arrows i{
+.arrows i {
   background: rgb(255, 254, 254);
   font-size: 18px;
   border-radius: 50%;
@@ -704,32 +705,31 @@ img.c-img {
   background: rgba(99, 82, 82, 0.493);
 } */
 
-
 /* // <!-- -------------------------------our produt quality --------------------------------> */
-.product-quality{
+.product-quality {
   margin-top: 180px;
   position: relative;
 }
-.product-quality-carocel{
+.product-quality-carocel {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-.quality-list{
+.quality-list {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-.quality-title{
+.quality-title {
   margin-left: 40px;
   margin-top: 40px;
   font-size: 19px;
 }
-.quality-about{
+.quality-about {
   margin-top: 10px;
   color: #888484;
 }
-.quality-image{
+.quality-image {
   width: 50px;
   padding: 30px;
   border-radius: 50%;
@@ -737,7 +737,7 @@ img.c-img {
   box-shadow: 4px 9px 10px rgb(223, 219, 219);
   z-index: 1;
 }
-.bord{
+.bord {
   border: 5px dashed chocolate;
   border-left: none;
   border-top: none;
@@ -751,7 +751,7 @@ img.c-img {
   margin-left: 110px;
 }
 
-.dashes{
+.dashes {
   width: 99%;
   border: 1px dashed chocolate;
   position: absolute;
@@ -760,40 +760,39 @@ img.c-img {
 }
 
 /*        <!-----------------------------------home farm product  ---------------------------> */
-.farm-product{
+.farm-product {
   margin-top: 60px;
   background: rgba(167, 235, 247, 0.363);
   height: 120vh;
-  
 }
-h3.product-intro{
+h3.product-intro {
   text-align: center;
   font-size: 30px;
-  font-family: 'poppin',sans-serif;
+  font-family: "poppin", sans-serif;
 }
 
-.list-of-product{
+.list-of-product {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
-.product-btn{
+.product-btn {
   border: none;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background: transparent;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all .4s ;
+  transition: all 0.4s;
 }
-.product-btn:hover{
+.product-btn:hover {
   color: rgb(30, 197, 30);
 }
 
 /* styling card */
-.all-product{
+.all-product {
   display: grid;
   grid-template-columns: 1px 1px 1px 1px;
   align-items: center;
@@ -802,7 +801,7 @@ h3.product-intro{
   column-gap: 290px;
   row-gap: 20px;
 }
-.product-list{
+.product-list {
   position: relative;
   border-radius: 10px;
   width: 210px;
@@ -811,50 +810,50 @@ h3.product-intro{
   padding: 30px 25px;
   box-shadow: 2px 4px 5px rgb(233, 230, 230);
 }
-.product-list .bxs-heart{
+.product-list .bxs-heart {
   position: absolute;
   top: 10px;
   right: 20px;
   font-size: 25px;
   cursor: pointer;
   color: rgb(189, 189, 194);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
-.product-list .bxs-heart .active1{
+.product-list .bxs-heart .active1 {
 }
 
-.product-image{
+.product-image {
   width: 170px;
 }
-.ima{
+.ima {
   width: 170px;
   height: 230px;
   position: relative;
 }
-.product-rate{
+.product-rate {
   font-size: 12px;
   color: #b6b1b1;
   display: flex;
   gap: 20px;
 
-  span{
+  span {
     font-size: 16px;
   }
 }
-.product-name{
+.product-name {
   font-size: 19px;
   margin-top: 8px;
   font-weight: 200;
-  font-family: 'poppin',sans-serif;
+  font-family: "poppin", sans-serif;
 }
-.product-price{
+.product-price {
   font-size: 19px;
   margin-top: 17px;
   font-family: monospace;
   color: green;
 }
 
-.show-likes{
+.show-likes {
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -862,58 +861,55 @@ h3.product-intro{
   flex-direction: column;
   gap: 5px;
 
-  
   /* hiding 2 icons be one */
-  i:nth-child(1){
+  i:nth-child(1) {
     transform: translateY(90px);
     opacity: 0;
-    transition: all .3s linear;
+    transition: all 0.3s linear;
   }
-  i:nth-child(2){
+  i:nth-child(2) {
     transform: translateY(45px);
     opacity: 0;
-    transition: all .3s linear;
-
+    transition: all 0.3s linear;
   }
-  i:nth-child(3){
+  i:nth-child(3) {
     z-index: 1;
   }
 }
-.show-likes:hover{
-      i:nth-child(1){
-      transform: translateY(0px);
-      opacity: 1;
-      transition: all .3s linear;
-  }
-    i:nth-child(2){
+.show-likes:hover {
+  i:nth-child(1) {
     transform: translateY(0px);
     opacity: 1;
-    transition: all .3s linear;
-
+    transition: all 0.3s linear;
+  }
+  i:nth-child(2) {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: all 0.3s linear;
   }
 }
 
-.show-likes i{
-    border-radius: 50%;
-    padding: 10px;
-    font-size: 20px;
-    background: #e7e4e4ab;
-    transition: all .6s ease;
-    cursor: pointer;
+.show-likes i {
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+  background: #e7e4e4ab;
+  transition: all 0.6s ease;
+  cursor: pointer;
 }
-.show-likes i:hover{
-    border-radius: 50%;
-    background-color: rgb(18, 223, 18);
-    color: white;   
-} 
+.show-likes i:hover {
+  border-radius: 50%;
+  background-color: rgb(18, 223, 18);
+  color: white;
+}
 /* button */
-.pag-btn{
+.pag-btn {
   margin-left: 700px;
   margin-top: 30px;
   position: relative;
 }
 
-.page-btn{
+.page-btn {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -941,7 +937,173 @@ h3.product-intro{
   border: 1px solid rgb(80, 78, 78);
   box-shadow: 0 0 5px rgb(160, 157, 157);
 }
-.active{
-  background: rgb(18, 223, 18);
+.active {
+}
+/* -----------------------middleside------------------------------------------- */
+.middleside {
+}
+.who-we {
+  display: flex;
+  align-items: center;
+}
+.secured-before {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 190px;
+}
+.element {
+  display: flex;
+  gap: 20px;
+  width: 300px;
+  padding: 17px 30px 17px 20px;
+  margin-top: 15px;
+  position: relative;
+  right: 20px;
+  border-radius: 30px;
+  background: white;
+  box-shadow: 2px 4px 9px rgb(185, 179, 179);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.secured-icon {
+  width: 33px;
+}
+.secured-about {
+  font-size: 16px;
+  font-family: "poping", monospace;
+  margin-top: 7px;
+  display: flex;
+  position: relative;
+  i {
+    margin-top: 5px;
+    position: absolute;
+    left: 240px;
+  }
+}
+.element::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  background: rgb(17, 185, 17);
+  border-radius: 30px;
+  transition: all 0.6s ease;
+  z-index: -1;
+}
+.element:hover::after {
+  width: 95%;
+  height: 90%;
+  transform: scale(1.05);
+}
+.man {
+  position: relative;
+}
+.manholding {
+  width: 560px;
+  border-radius: 140%;
+  position: relative;
+  padding-top: 80px;
+  bottom: 40px;
+  background: white;
+}
+.arrowings {
+  position: absolute;
+  right: 290px;
+  top: 100px;
+  width: 330px;
+  z-index: 1;
+}
+.us {
+  margin-right: 30px;
+}
+.we-are {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: "poppin", sans-serif;
+}
+.about-we-do {
+  margin-bottom: 100px;
+  color: #888484;
+  font-size: 15.2px;
+  font-family: "poppin", sans-serif;
+}
+.call {
+  position: relative;
+  margin-left: 50px;
+}
+.how-to {
+  font-size: 15px;
+  font-family: "poppin", sans-serif;
+}
+.number {
+  margin-top: 13px;
+  font-family: "poppin", sans-serif;
+  font-weight: bold;
+}
+.bxs-phone-incoming {
+  position: relative;
+  right: 70px;
+  bottom: 60px;
+  border-radius: 50%;
+  font-size: 20px;
+  background: rgb(40, 158, 24);
+  padding: 19px;
   color: white;
+}
+.arrowings1 {
+  position: absolute;
+  right: 320px;
+  top: 80px;
+  width: 330px;
+  z-index: 1;
+  transform: rotate(160deg);
+}
+/*         <!-- ------------------------simple card-------------------------- -->
+ */
+ .card-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+ }
+ .card-list{
+  position: relative;
+ }
+ .card-images{
+  width: 630px;
+  border-radius: 50px;
+ }
+ .card-name{
+  position: absolute;
+  bottom: 190px;
+  font-size: 30px;
+  color: white;
+  font-family: 'poppin',sans-serif;
+  left: 40px;
+ }
+ .learn-more{
+  display: flex;
+  position: absolute;
+  bottom: 120px;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: white;
+  font-family: 'poppin',sans-serif;
+  left: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  i{
+    margin-top: 3px;
+    margin-left: 8px;
+  }
+ }
+/*         <!------------------------- trending product -----------------------> */
+.trending{
+  border: 1px solid;
+  height: 70vh;
+  margin-top: 40px;
 }

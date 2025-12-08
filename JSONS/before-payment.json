@@ -1,0 +1,14 @@
+[
+    {
+        "icon":"images/check.png",
+        "about":"Authenticity Certification"
+    },
+    {
+        "icon":"images/delivery-man.png",
+        "about":"Express Delivery"
+    },
+    {
+        "icon":"images/secure-payment.png",
+        "about":"Payment Secure"
+    }
+]

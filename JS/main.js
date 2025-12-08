@@ -1,20 +1,17 @@
 // making a dropdown for the navigation
 const dropdown = () => {
   const arrow = document.querySelectorAll(".bx-chevron-up");
-  const dropdown = document.querySelectorAll(".dropdown");
+  const dropdown = document.querySelectorAll("ul.dropdown");
 
-  arrow.forEach((element, index) => {
-    dropdown.forEach((list, listNumb) => {
-      // first arrow
-      if (index === 0) {
-        element.addEventListener("click", () => {
-          if (listNumb === 0) {
-            list.classList.toggle("show");
-          }
-        });
-      }
-      // second arrow
+  dropdown.forEach((list, listNumb) => {
+    list.addEventListener("click", () => {
+      console.log(list);
+      // list.classList.toggle('show')
     });
+    //   arrow.forEach((element, index) => {
+    //   // first arrow
+    //   // second arrow
+    // });
   });
 };
 dropdown();
@@ -286,93 +283,69 @@ function showingProductCategories() {
   let currentProduct = 0;
   const items = 8;
 
-  productBtn.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // if(index === 0){
-      //   btn[0].style.color = 'green'
-      //   btn[1].style.color = 'black'
-      //   btn[2].style.color = 'black'
-      //   btn[3].style.color = 'black'
-      // }
-      // else if(index === 1){
-      //   btn[0].style.color = 'black'
-      //   btn[1].style.color = 'green'
-      //   btn[2].style.color = 'black'
-      //   btn[3].style.color = 'black'
-      // }
-      // else if(index === 2){
-      //   btn[0].style.color = 'black'
-      //   btn[1].style.color = 'black'
-      //   btn[2].style.color = 'green'
-      //   btn[3].style.color = 'black'
-      // }
-      // else if(index === 3){
-      //   btn[0].style.color = 'black'
-      //   btn[1].style.color = 'black'
-      //   btn[2].style.color = 'black'
-      //   btn[3].style.color = 'green'
-      // }
-      const file = btn.dataset.json;
-      fetch(file)
-        .then((response) => response.json())
-        .then((data) => {
-          // displaying all prodcut
-          product = data;
-          console.log(file);
-          // reset  to first 8
-          currentProduct = 0;
-          showingPage();
-          showPagination();
-        })
-        .catch((error) => console.log(error));
+  function loadProducts(btn) {
+    const file = btn.dataset.json;
+    productBtn.forEach((b) => b.classList.remove("active-product"));
+    btn.classList.add("active-product");
+    fetch(file)
+      .then((response) => response.json())
+      .then((data) => {
+        // displaying all prodcut
+        product = data;
+        // reset  to first 8
+        currentProduct = 0;
+        showingPage();
+        showPagination();
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function showingPage() {
+    let allProduct = document.querySelector(".all-product");
+    let start = currentProduct * items;
+    let end = start + items;
+    allProduct.innerHTML = "";
+    // displaying only 8 items
+    let item = product.slice(start, end);
+    item.forEach((element) => {
+      allProduct.innerHTML += `<div class = 'product-list'>
+            <i class='bx bxs-heart'></i>
+            <div class='ima'>
+              <img src = '${element.image}' class ='product-image'>
+            </div>
+            <h3 class='product-rate'>${element.rate}  <span>4.5</span></h3>
+            <h3 class='product-name'>${element.name}</h3>
+            <h3 class='product-price'>GH ${element.price}.04</h3>
+
+            <div class='show-likes'>
+              <i class='bx bx-copy' ></i>
+              <i class='bx bx-refresh'></i>
+              <i class='bx bx-cart'></i>
+            </div>
+          </div>`;
     });
-    function showingPage() {
-      let allProduct = document.querySelector(".all-product");
-      let start = currentProduct * items;
-      let end = start + items;
-      allProduct.innerHTML = "";
-      // displaying only 8 items
-      let item = product.slice(start,end);
-      item.forEach((element) => {
-        allProduct.innerHTML += `<div class = 'product-list'>
-              <i class='bx bxs-heart'></i>
-              <div class='ima'>
-                <img src = '${element.image}' class ='product-image'>
-              </div>
-              <h3 class='product-rate'>${element.rate}  <span>4.5</span></h3>
-              <h3 class='product-name'>${element.name}</h3>
-              <h3 class='product-price'>GH ${element.price}.04</h3>
-
-              <div class='show-likes'>
-                <i class='bx bx-copy' ></i>
-                <i class='bx bx-refresh'></i>
-                <i class='bx bx-cart'></i>
-              </div>
-            </div>`;
-      });
-      // =========================================adding likes to nav like=================================
-      const productList = document.querySelectorAll(".product-list");
-      productList.forEach(productard=>{
-
+    // =========================================adding likes to nav like=================================
+    const productList = document.querySelectorAll(".product-list");
+    productList.forEach((productard) => {
       const produtName = productard.querySelector(".product-name").innerText;
-        let liking = productard.querySelectorAll(".bxs-heart");
-        likeCount = 0;
-        liking.forEach((like) => {
-          like.addEventListener("click", () => {
-            if (like.classList.contains("active1")) {
-              likeCount--;
-              like.classList.remove("active1");
-              like.style.color = "";
-              console.log('you unliked',produtName);
-            } else {
-              likeCount++;
-              like.classList.add("active1");
-              like.style.color = "black";
-              console.log('you liked',produtName);
-            }
-            localStorage.setItem("like", likeCount);
-          });
+      let liking = productard.querySelectorAll(".bxs-heart");
+      likeCount = 0;
+      liking.forEach((like) => {
+        like.addEventListener("click", () => {
+          if (like.classList.contains("active1")) {
+            likeCount--;
+            like.classList.remove("active1");
+            like.style.color = "";
+            console.log("you unliked", produtName);
+          } else {
+            likeCount++;
+            like.classList.add("active1");
+            like.style.color = "black";
+            console.log("you liked", produtName);
+          }
+          localStorage.setItem("like", likeCount);
         });
+      });
       // =================================================adding carts to the nav cart===========================================
       let carts = productard.querySelectorAll(".bx-cart");
       let count = 0;
@@ -383,40 +356,106 @@ function showingProductCategories() {
             cart.classList.remove("active");
             cart.style.background = "";
             cart.style.color = "";
-            console.log('you removed cart',produtName)
+            // console.log('you removed cart',produtName)
           } else {
             count++;
             cart.classList.add("active");
             cart.style.background = "rgb(18, 223, 18)";
             cart.style.color = "white";
-            console.log('you cart',produtName)
+            // console.log('you cart',produtName)
           }
 
           localStorage.setItem("cart", count);
         });
       });
+    });
+  }
+
+  function showPagination() {
+    const pageBtn = document.querySelector(".pag-btn");
+    pageBtn.innerHTML = "";
+    let totalPage = Math.ceil(product.length / items);
+
+    for (let i = 0; i < totalPage; i++) {
+      pageBtn.innerHTML += `<button class='page-btn' data-page = '${i}'></button>`;
+    }
+    document.querySelectorAll(".page-btn").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        currentProduct = Number(btn.dataset.page);
+        showingPage();
       })
+    );
+  }
 
-    }
-
-    function showPagination() {
-      const pageBtn = document.querySelector(".pag-btn");
-      pageBtn.innerHTML = "";
-      let totalPage = Math.ceil(product.length / items);
-
-      for (let i = 0; i < totalPage; i++) {
-        pageBtn.innerHTML += `<button class='page-btn' data-page = '${i}'></button>`;
-      }
-      document.querySelectorAll(".page-btn").forEach((btn) =>
-        btn.addEventListener("click", () => {
-          currentProduct = Number(btn.dataset.page);
-          showingPage();
-        })
-      );
-    }
+  productBtn.forEach((btn) => {
+    btn.addEventListener("click", () => loadProducts(btn));
   });
+
+  if (productBtn.length > 0) {
+    loadProducts(productBtn[0]);
+  }
 }
 showingProductCategories();
 
 //---------------------------------------- fetching before payment----------------------
+const middleSide = () => {
+  const securedBefore = document.querySelector(".secured-before");
 
+  fetch("JSONS/before-payment.json")
+    .then((res) => res.json())
+    .then((data) =>
+      data.forEach((items) => {
+        const element = document.createElement("div");
+        element.className = "element";
+
+        element.innerHTML = `<img src ='${items.icon}' class='secured-icon'>
+                            <h3 class='secured-about'>${items.about}<i class='bx bx-right-arrow-alt'></i></h3>
+                            `;
+        securedBefore.append(element);
+      })
+    );
+};
+middleSide();
+
+//         <!------------------------- trending product ----------------------->
+function trending() {
+  const trendingProduct = document.querySelector(".trending-product");
+  const trendingBtn = document.querySelectorAll(".trending-button");
+  function loadTrend(btn) {
+    const productFile = btn.dataset.trend;
+    trendingBtn.forEach((b) => b.classList.remove("active-trend"));
+    btn.classList.add("active-trend");
+    trendingProduct.innerHTML = "";
+    fetch(productFile)
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((element) => {
+          const allCategory = document.createElement("div");
+          allCategory.className = 'trend-item';
+          allCategory.innerHTML = `
+          <img src='${element.mainImg}' class='main-img'>
+          <div class='trend-product'>
+            <div class='sub-product'>
+              <img src='${element.image}' class='trend-img'>
+              <div class='trend-info'>
+                <p class='trend-rate'>${element.rate}</p>
+                <h3 class='trend-name'>${element.name}</h3>
+                <h3 class='trend-price'>${element.price}</h3>
+              </div>
+            </div>
+          </div>`;
+          trendingProduct.append(allCategory);
+        });
+      })
+      .catch((err) => console.error(err));
+  }
+
+  trendingBtn.forEach((btn) => {
+    btn.addEventListener("click", () => loadTrend(btn));
+  });
+
+  if (trendingBtn.length > 0) {
+    loadTrend(trendingBtn[0]);
+  }
+}
+trending();
