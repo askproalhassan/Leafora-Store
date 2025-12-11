@@ -2,8 +2,41 @@
     {
         "mainImg":"images/trending/list.jpg",
         "image":"images/trending/apple.jpg",
-        "rate":"⭐⭐⭐⭐ 4.5",
         "name":"Green Kiwi zespri",
+        "rate":"⭐⭐⭐⭐ 4.5",
+        "price":"103"
+    },
+    {
+        
+       "image":"images/trending/fresh apple.png",
+        "rate":"⭐⭐⭐⭐ 4.5",
+        "name":"Fresh apple",
+        "price":"23"
+    },
+    {
+        "image":"images/trending/freepil.png",
+        "rate":"⭐⭐ 2.5",
+        "name":"Kiwi Ice Drink",
+        "price":"13"
+    },
+    {
+        
+        "image":"images/trending/waterm.png",
+        "rate":"⭐⭐⭐ 3.5",
+        "name":"Watermelon",
+        "price":"123"
+    },
+    {
+        "image":"images/trending/fresh kiwi.png",
+        "rate":"⭐⭐ 2.5",
+        "name":"Green Kiwi",
+        "price":"123"
+    },
+    {
+        "image":"images/trending/orange.png",
+        "rate":"⭐⭐⭐ 3.5",
+        "name":"Orange",
         "price":"123"
     }
+ 
 ]

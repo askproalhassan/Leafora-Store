@@ -1103,7 +1103,232 @@ h3.product-intro {
  }
 /*         <!------------------------- trending product -----------------------> */
 .trending{
-  border: 1px solid;
   height: 70vh;
   margin-top: 40px;
+  width: 60%;
+  position: relative;
+}
+.trending-btn{
+  position: absolute;
+  right: -500px;
+  top: 3px;
+}
+
+.trending-btn button {
+  position: absolute;
+  z-index: 1;
+  gap: 15px;
+}
+
+.trending-btn button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(221, 218, 218, 0.753);
+  border: none;
+  position: relative;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.trending-btn button:hover {
+  background: rgb(26, 27, 26);
+}
+.trending-btn button::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  z-index: -1;
+}
+.trending-btn button:hover::after {
+  background: rgba(194, 43, 43, 0.493);
+}
+
+.trending-title{
+  margin-top: 20px;
+  font-size: 25px;
+  font-family: 'poppin',sans-serif;
+  font-weight: bolder;
+  margin-left: 300px;
+}
+.trnding-prod{
+  display: grid;
+  grid-template-columns: 10px 10px ;
+  position: relative;
+  left: 600px;
+  column-gap: 400px;
+}
+.trend-item{
+  width: 300px;
+  padding: 11px 80px 11px 10px;
+  background: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 9px rgb(209, 207, 207);
+  cursor: pointer;
+}
+.sub-product{
+  display: flex;
+  gap: 30px;
+  width: 300px;
+  padding: 20px;
+}
+
+.trend-info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main-img{
+  width: 390px;
+  height: 510px;
+  position: absolute;
+  left: -430px;
+  bottom: -4px;
+  border-radius: 20px;
+} 
+.trend-img{
+  width: 90px;
+  height: 90px;
+}
+.trend-rate{
+  font-size: 12px;
+  color: #888484;
+}
+.trend-name{
+  font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.trend-price{
+  font-size: 17px;
+  color: green;
+  font-weight: 500;
+  cursor: pointer;
+}
+/*       <!---------------------------------------------Home explore farm ---------------------------------------->*/
+.expore-our-farm{
+  position: relative;
+  margin-top: 90px;
+}
+.img-side{
+  position: relative;
+}
+.mini-background{
+  width: 100%;
+  height: 95vh;
+  filter: brightness(60%);
+}
+.explore-content{
+  position: absolute;
+  bottom: 410px;
+  left: 690px;
+  display: flex;
+  flex-direction: column;
+
+
+  .take{
+    color: rgb(14, 180, 14);
+    font-size: 18px;
+    margin-left: 50px;
+  }
+  .explore-farm{
+    color: White;
+    font-size: 45px;
+    font-family: 'poppin',sans-serif;
+    text-transform: uppercase;
+    margin-left: -240px;
+    margin-top: 15px;
+  }
+  .about-farm{
+    font-size: 20px;
+    color: white;
+    margin-top: 10px;
+    margin-left: -30px;
+    font-family: 'poppin',sans-serif;
+  }
+}
+/* <!---------------------------------------testimonial  -----------------> */
+.testimonial{
+  width: 1180px;
+  height: 65vh;
+  position: absolute;
+  left: 200px;
+  bottom: -410px;
+  background:rgb(218, 238, 236);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.testimonial-title{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 34px;
+  font-family: 'poppin',sans-serif;
+}
+.customer-idea{
+  text-align: center;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 17px;
+  color: #181717;
+  font-weight: 500;
+}
+.testimonial-text{
+  text-align: center;
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+}
+.image-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0;
+  gap: 8px;
+  font-size: 0;
+}
+.image-row img{
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: 0.3s ease;
+  display: block;
+}
+.image-row img.call{
+  width: 80px;
+  height: 80px;
+  opacity: 1;
+  transform: scale(1.05);
+  border: 2px solid #4da6a8;
+  display: block;
+}
+.testimonial-arrows{
+  display: flex;
+  justify-content: center;
+  gap: 320px;
+  position: absolute;
+  left: 430px;
+  bottom: 190px;
+}
+.testimonial-arrows i{
+  background: white;
+  border: 1px solid #aaa;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 50%;
+  
+  cursor: pointer;
+  margin: 5px;
+}
+.testimonial-name{
+  margin-top: 28px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
 }

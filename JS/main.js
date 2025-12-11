@@ -419,7 +419,8 @@ middleSide();
 
 //         <!------------------------- trending product ----------------------->
 function trending() {
-  const trendingProduct = document.querySelector(".trending-product");
+  const trendingProduct = document.querySelector(".trnding-prod");
+  const trendingimg = document.querySelector(".trnding-img");
   const trendingBtn = document.querySelectorAll(".trending-button");
   function loadTrend(btn) {
     const productFile = btn.dataset.trend;
@@ -431,22 +432,21 @@ function trending() {
       .then((data) => {
         data.forEach((element) => {
           const allCategory = document.createElement("div");
-          allCategory.className = 'trend-item';
+          allCategory.className = "trend-item";
           allCategory.innerHTML = `
           <img src='${element.mainImg}' class='main-img'>
-          <div class='trend-product'>
             <div class='sub-product'>
               <img src='${element.image}' class='trend-img'>
               <div class='trend-info'>
                 <p class='trend-rate'>${element.rate}</p>
                 <h3 class='trend-name'>${element.name}</h3>
-                <h3 class='trend-price'>${element.price}</h3>
+                <h3 class='trend-price'>GH ${element.price}</h3>
               </div>
             </div>
-          </div>`;
+          `;
           trendingProduct.append(allCategory);
         });
-      })
+    })
       .catch((err) => console.error(err));
   }
 
@@ -459,3 +459,55 @@ function trending() {
   }
 }
 trending();
+
+// <!---------------------------------------testimonial  ------------------------------------->
+function testimonial(){
+  const testimonialText = document.querySelector('.testimonial-text');
+  const testimonialImg = document.querySelector('#imageRow');
+  const testimonialName = document.querySelector('.testimonial-name');
+
+  const testimonialArrowsLeft = document.querySelector('#left');
+  const testimonialArrowsRight = document.querySelector('#right');
+
+  let testimonial = [];
+
+  fetch('JSONS/testimonial-json/testimonial.json')
+    .then(res=>res.json())
+    .then(data => {
+      testimonial = data;
+       current = 0;
+      showTestimonial()
+      })
+      // showing images
+      function showingImage(){
+        testimonialImg.innerHTML = '';
+        testimonial.forEach((img,index)=>{
+          const image = document.createElement('img');
+          image.className = 'testimonial-image';
+          image.src = img.image;
+
+          if(index === current){
+            image.classList.add('call')
+          }
+          testimonialImg.append(image)
+        })
+      }
+      function showTestimonial(){
+        const t = testimonial[current];
+        testimonialText.innerHTML = `${t.comment}`;
+        testimonialName.innerHTML = t.name
+        showingImage()
+
+      }
+    testimonialArrowsLeft.addEventListener('click',()=>{
+      current = (current - 1 + testimonial.length) % testimonial.length 
+      showTestimonial()
+    })
+    testimonialArrowsRight.addEventListener('click',()=>{
+      current = (current + 1) % testimonial.length
+      showTestimonial()
+
+    })
+    .catch(console.error(error))
+}
+testimonial()

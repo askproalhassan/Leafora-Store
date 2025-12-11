@@ -1,0 +1,42 @@
+[
+    {
+        "mainImg":"images/trending/list.jpg",
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐⭐⭐ 4.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    },
+    {
+        
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐⭐⭐ 4.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    },
+    {
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐ 2.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    },
+    {
+        
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐⭐ 3.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    },
+    {
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐ 2.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    },
+    {
+        "image":"images/trending/apple.jpg",
+        "rate":"⭐⭐⭐ 3.5",
+        "name":"Green Kiwi zespri",
+        "price":"123"
+    }
+ 
+]
