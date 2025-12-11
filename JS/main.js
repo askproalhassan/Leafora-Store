@@ -475,7 +475,7 @@ function testimonial(){
     .then(res=>res.json())
     .then(data => {
       testimonial = data;
-       current = 0;
+       current =   0;
       showTestimonial()
       })
       // showing images

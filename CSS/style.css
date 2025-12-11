@@ -1254,7 +1254,7 @@ h3.product-intro {
 /* <!---------------------------------------testimonial  -----------------> */
 .testimonial{
   width: 1180px;
-  height: 65vh;
+  height: 60vh;
   position: absolute;
   left: 200px;
   bottom: -410px;
@@ -1298,7 +1298,6 @@ h3.product-intro {
   border-radius: 50%;
   opacity: 0.5;
   transition: 0.3s ease;
-  display: block;
 }
 .image-row img.call{
   width: 80px;
@@ -1306,15 +1305,14 @@ h3.product-intro {
   opacity: 1;
   transform: scale(1.05);
   border: 2px solid #4da6a8;
-  display: block;
 }
 .testimonial-arrows{
   display: flex;
   justify-content: center;
   gap: 320px;
   position: absolute;
-  left: 430px;
-  bottom: 190px;
+  left: 390px;
+  bottom: 160px;
 }
 .testimonial-arrows i{
   background: white;
@@ -1327,7 +1325,7 @@ h3.product-intro {
   margin: 5px;
 }
 .testimonial-name{
-  margin-top: 28px;
+  margin-top: 40px;
   font-weight: bold;
   color: #222;
   text-align: center;

@@ -1,0 +1,32 @@
+[
+    {
+        "image":"images/blog-images/banana.jpg",
+        "postedInfo":[
+            {
+                "view":"149 view this",
+                "date":"20/10/2022"
+            }
+        ],
+        "info":"The Health Benefits of Bananas You Didn't Know About <br> during this pandemic period "
+    },
+    {
+        "image":"images/blog-images/bluebarry.jpg",
+        "postedInfo":[
+            {
+                "view":"200 view this",
+                "date":"15/11/2022"
+            }
+        ],
+        "info":"Blueberry: A Superfood for Brain Health <br> and Cognitive Function with antioxidants"
+    },
+    {
+        "image":"images/blog-images/cocoa.jpg",
+        "postedInfo":[
+            {
+                "view":"180 view this",
+                "date":"05/12/2022"
+            }
+        ],
+        "info":"Cocoa and Heart Health: <br> Exploring the Cardiovascular Benefits of Dark Chocolate production"
+    }
+]
