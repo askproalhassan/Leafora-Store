@@ -326,24 +326,30 @@ function showingProductCategories() {
     });
     // =========================================adding likes to nav like=================================
     const productList = document.querySelectorAll(".product-list");
-    productList.forEach((productard) => {
+    productList.forEach((productard,index) => {
       const produtName = productard.querySelector(".product-name").innerText;
       let liking = productard.querySelectorAll(".bxs-heart");
+      let productImg = productard.querySelectorAll(".product-image");
+      
       likeCount = 0;
+      const productId = index;
       liking.forEach((like) => {
         like.addEventListener("click", () => {
           if (like.classList.contains("active1")) {
             likeCount--;
             like.classList.remove("active1");
             like.style.color = "";
+            localStorage.removeItem(`product-${productId}-name`, produtName);
+
             console.log("you unliked", produtName);
           } else {
             likeCount++;
             like.classList.add("active1");
             like.style.color = "black";
-            console.log("you liked", produtName);
+            localStorage.setItem(`product-${productId}-name`, produtName);
+            localStorage.setItem(`product-${productId}-name`, produtName);
           }
-          localStorage.setItem("like", likeCount);
+          localStorage.setItem(`like`, likeCount);
         });
       });
       // =================================================adding carts to the nav cart===========================================
@@ -400,6 +406,9 @@ showingProductCategories();
 //---------------------------------------- fetching before payment----------------------
 const middleSide = () => {
   const securedBefore = document.querySelector(".secured-before");
+  const aboutUs = document.querySelector(".about-us");
+  const man = document.querySelector(".man");
+  const us = document.querySelector(".us");
 
   fetch("JSONS/before-payment.json")
     .then((res) => res.json())
@@ -414,6 +423,18 @@ const middleSide = () => {
         securedBefore.append(element);
       })
     );
+  // making animational view point for middle side
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(enter=>{
+      if(enter.isIntersecting){
+        aboutUs.classList.add('fade-left')
+        man.classList.add('man-animation')
+        us.classList.add('us-animation')
+      }
+    })
+  })
+  observer.observe(securedBefore)
+  observer.observe(man)
 };
 middleSide();
 
@@ -446,7 +467,7 @@ function trending() {
           `;
           trendingProduct.append(allCategory);
         });
-    })
+      })
       .catch((err) => console.error(err));
   }
 
@@ -461,53 +482,81 @@ function trending() {
 trending();
 
 // <!---------------------------------------testimonial  ------------------------------------->
-function testimonial(){
-  const testimonialText = document.querySelector('.testimonial-text');
-  const testimonialImg = document.querySelector('#imageRow');
-  const testimonialName = document.querySelector('.testimonial-name');
+function testimonial() {
+  const testimonialText = document.querySelector(".testimonial-text");
+  const testimonialImg = document.querySelector("#imageRow");
+  const testimonialName = document.querySelector(".testimonial-name");
 
-  const testimonialArrowsLeft = document.querySelector('#left');
-  const testimonialArrowsRight = document.querySelector('#right');
+  const testimonialArrowsLeft = document.querySelector("#left");
+  const testimonialArrowsRight = document.querySelector("#right");
 
   let testimonial = [];
 
-  fetch('JSONS/testimonial-json/testimonial.json')
-    .then(res=>res.json())
-    .then(data => {
+  fetch("JSONS/testimonial-json/testimonial.json")
+    .then((res) => res.json())
+    .then((data) => {
       testimonial = data;
-       current =   0;
-      showTestimonial()
-      })
-      // showing images
-      function showingImage(){
-        testimonialImg.innerHTML = '';
-        testimonial.forEach((img,index)=>{
-          const image = document.createElement('img');
-          image.className = 'testimonial-image';
-          image.src = img.image;
+      current = 0;
+      showTestimonial();
+    });
+  // showing images
+  function showingImage() {
+    testimonialImg.innerHTML = "";
+    testimonial.forEach((img, index) => {
+      const image = document.createElement("img");
+      image.className = "testimonial-image";
+      image.src = img.image;
 
-          if(index === current){
-            image.classList.add('call')
-          }
-          testimonialImg.append(image)
-        })
+      if (index === current) {
+        image.classList.add("call");
       }
-      function showTestimonial(){
-        const t = testimonial[current];
-        testimonialText.innerHTML = `${t.comment}`;
-        testimonialName.innerHTML = t.name
-        showingImage()
-
-      }
-    testimonialArrowsLeft.addEventListener('click',()=>{
-      current = (current - 1 + testimonial.length) % testimonial.length 
-      showTestimonial()
+      testimonialImg.append(image);
+    });
+  }
+  function showTestimonial() {
+    const t = testimonial[current];
+    testimonialText.innerHTML = `${t.comment}`;
+    testimonialName.innerHTML = t.name;
+    showingImage();
+  }
+  testimonialArrowsLeft.addEventListener("click", () => {
+    current = (current - 1 + testimonial.length) % testimonial.length;
+    showTestimonial();
+  });
+  testimonialArrowsRight
+    .addEventListener("click", () => {
+      current = (current + 1) % testimonial.length;
+      showTestimonial();
     })
-    testimonialArrowsRight.addEventListener('click',()=>{
-      current = (current + 1) % testimonial.length
-      showTestimonial()
-
-    })
-    .catch(console.error(error))
+    // .catch((err) => console.error(err));
 }
-testimonial()
+testimonial();
+
+// <!--------------------------------------------- Blog ------------------------------------------>
+
+function blog() {
+  const blog = document.querySelector(".blog-list");
+  fetch('JSONS/blog.json')
+    .then(res => res.json())
+    .then(data=>{
+      data.forEach((ele,ind)=>{
+        posterin = ele.postedInfo[0]
+        const blogList = document.createElement('div');
+        blogList.className='bloglist';
+        blogList.innerHTML = `
+                              <div class='img-border'>
+                                <img src='${ele.image}' class='blog-image'>
+                              </div>
+                              <div class='blog-view'>
+                                  <p class='blog-view'>${posterin.view}</p>
+                                  <p class='blog-date'>${posterin.date}</p>
+                              </div>
+                              <h3 class='blog-info'>${ele.info}</h3>
+                              <button class='blog-red'>Read More<i class='bx bx-right-arrow-alt'></i></button>
+                `
+        blog.append(blogList)
+      })
+    })
+    .catch((err) => console.error(err));
+}
+blog();
