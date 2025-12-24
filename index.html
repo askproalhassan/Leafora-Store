@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="CSS/style.css" />
     <title>Leafora</title>
   </head>
@@ -17,11 +14,12 @@
         <nav>
           <!-- logo -->
           <div class="logos">
-            <img src="images/logos.png" alt="" class="logo" />
+            <a href="#home"> <img src="images/logos.png" alt="" class="logo" /></a>
+           
           </div>
           <!-- nav list -->
           <ul class="unorder">
-            <li><a href="#">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li>
               <a href="#"
                 >Shope <i class="bx bx-chevron-up"></i>
@@ -87,8 +85,9 @@
             <div class="profile-likes-carts">
               <img src="images/basket fruits.png" alt="" class="profile" />
               <div class="ic">
-                <i class="bx bx-heart"></i>
-                <i class="bx bx-cart"></i>
+                <a href="liked-section/like.html"><i class="bx bx-heart"></i></a>
+                <a href="cart-section/cart.html"><i class="bx bx-cart"></i></a>
+                
               </div>
             </div>
           </div>
@@ -114,7 +113,7 @@
         </div>
       </div>
       <!-------------------------------------- Home ------------------------------>
-      <div class="intro">
+      <div class="intro" id="home">
         <!-- left side -->
         <div class="top-catigories">
           <h3 class="category">Top Categories</h3>
@@ -136,7 +135,7 @@
         </div>
       </div>
       <!-------------------------------------- Home carocel ------------------------------>
-      <div class="home-carocel">
+      <div class="home-carocel" >
         <img src="images/carocel-image/onion.png" alt="" class="onion" />
         <img src="images/carocel-image/pepper.png" alt="" class="pepper" />
         <img
@@ -176,7 +175,7 @@
       <div class="farm-product">
         <h3 class="product-intro">Fresh Farm Product</h3>
         <!-- list of product -->
-        <div class="list-of-product">
+        <div class="list-of-product" data-id="p101">
           <button
             class="product-btn"
             data-json="JSONS/product-json/vegetable.json"
@@ -338,6 +337,12 @@
           <input type="text" placeholder="Enter your email">
           <button class="sub-submit">Subscribe</button>
         </div>
+      </div>
+      <!-- -------------------------------------------footer----------------------------- -->
+      <footer></footer>
+      <!-- popUp side --------------------------------------------->
+      <div class="pop-up">
+        <p class="poped"></p>
       </div>
     </div>
     <script src="JS/main.js"></script>

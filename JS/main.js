@@ -326,52 +326,130 @@ function showingProductCategories() {
     });
     // =========================================adding likes to nav like=================================
     const productList = document.querySelectorAll(".product-list");
-    productList.forEach((productard,index) => {
-      const produtName = productard.querySelector(".product-name").innerText;
-      let liking = productard.querySelectorAll(".bxs-heart");
-      let productImg = productard.querySelectorAll(".product-image");
-      
-      likeCount = 0;
-      const productId = index;
-      liking.forEach((like) => {
-        like.addEventListener("click", () => {
-          if (like.classList.contains("active1")) {
-            likeCount--;
-            like.classList.remove("active1");
-            like.style.color = "";
-            localStorage.removeItem(`product-${productId}-name`, produtName);
+    const popUp = document.querySelector(".pop-up");
+    const poped = document.querySelector(".poped");
+    const productData = JSON.parse(localStorage.getItem('ProductData')) || [];
 
-            console.log("you unliked", produtName);
-          } else {
-            likeCount++;
+     productList.forEach((productard,index) => {
+      let liking = productard.querySelectorAll(".bxs-heart");
+      let carts = productard.querySelectorAll(".bx-cart");
+
+       //  to be stored
+       const productName = productard.querySelector(".product-name").innerText;
+       const productImg = productard.querySelector(".product-image").src;
+       const productPrice = productard.querySelector(".product-price").innerHTML;
+       const productRate = productard.querySelector(".product-rate").innerHTML;
+
+        
+        likeCount = 0;
+
+        
+        liking.forEach((like) => {
+          // storing all product into one place
+          const productItem ={
+            id:index,
+            name:productName,
+            image:productImg,
+            price:productPrice,
+            rate:productRate
+          }
+          // restore active state on reload
+          if (productData.some(p => p.id === index)) {
             like.classList.add("active1");
             like.style.color = "black";
-            localStorage.setItem(`product-${productId}-name`, produtName);
-            localStorage.setItem(`product-${productId}-name`, produtName);
-          }
-          localStorage.setItem(`like`, likeCount);
-        });
-      });
-      // =================================================adding carts to the nav cart===========================================
-      let carts = productard.querySelectorAll(".bx-cart");
-      let count = 0;
-      carts.forEach((cart) => {
-        cart.addEventListener("click", () => {
-          if (cart.classList.contains("active")) {
-            count--;
-            cart.classList.remove("active");
-            cart.style.background = "";
-            cart.style.color = "";
-            // console.log('you removed cart',produtName)
-          } else {
-            count++;
-            cart.classList.add("active");
-            cart.style.background = "rgb(18, 223, 18)";
-            cart.style.color = "white";
-            // console.log('you cart',produtName)
           }
 
-          localStorage.setItem("cart", count);
+          like.addEventListener("click", () => {
+            existingProduct = productData.findIndex(p => p.id === index);
+            if (like.classList.contains("active1") || existingProduct !== -1) {
+              productData.splice(existingProduct, 1);
+              likeCount--;
+              like.classList.remove("active1");
+              like.style.color = "";
+                // showing unlike popup
+              setTimeout(() => {
+                popUp.classList.add('showing-popup')
+                poped.innerHTML =`You unliked ${productName}`
+                setTimeout(()=>{
+                  popUp.classList.remove('showing-popup')
+                },3000)
+              }, 900);
+
+            } else {
+              likeCount++;
+              productData.push(productItem)
+              like.classList.add("active1");
+              like.style.color = "black";
+              // showing like popup
+              setTimeout(() => {
+                popUp.classList.add('showing-popup')
+                poped.innerHTML =`You liked ${productName}`
+                setTimeout(()=>{
+                  popUp.classList.remove('showing-popup')
+                },3000)
+              }, 900);
+            }
+            localStorage.setItem(`ProductData`, JSON.stringify(productData));
+            localStorage.setItem(`like`, likeCount);
+          });
+        });
+        // =================================================adding carts to the nav cart===========================================
+        const allCardProduct = JSON.parse(localStorage.getItem('cartProduct'))|| [];
+        let count = 0;
+
+        carts.forEach((cart) => {
+
+          // storing product data
+          const cleanPrice = Number(productPrice.replace(/[^0-9.]/g, ""));
+
+          
+          const cartsProduct = {
+            name:productName,
+            img:productImg,
+            price:cleanPrice
+          }
+          
+          if(allCardProduct.some(p => p.id === index )){
+            cart.classList.add("active2");
+            cart.style.backgroundColor = "rgb(18, 223, 18)";
+          }
+          cart.addEventListener("click", () => {
+
+            existingCartProduct = allCardProduct.findIndex(p=>p.id === index);
+            if (cart.classList.contains("active2")  || existingCartProduct !== -1) {
+              allCardProduct.splice(existingCartProduct, 1)
+              // count--;
+              cart.classList.remove("active2");
+              cart.style.background = "";
+              cart.style.color = "";
+
+               // showing unlike popup
+              setTimeout(() => {
+                popUp.classList.add('showing-popup')
+                poped.innerHTML =`You uncart ${productName}`
+                setTimeout(()=>{
+                  popUp.classList.remove('showing-popup')
+                },3000)
+              }, 900);
+            }
+            else {
+              // count++;
+              allCardProduct.push(cartsProduct)
+              cart.classList.add("active2");
+              cart.style.backgroundColor = "rgb(18, 223, 18)";
+              cart.style.color = "white";
+
+                     // showing like popup
+              setTimeout(() => {
+                popUp.classList.add('showing-popup')
+                poped.innerHTML =`You cart ${productName}`
+                setTimeout(()=>{
+                  popUp.classList.remove('showing-popup')
+                },3000)
+              }, 900);
+            }
+            localStorage.setItem('cartProduct',JSON.stringify(allCardProduct))
+           localStorage.setItem("cart", JSON.parse(count));
         });
       });
     });
