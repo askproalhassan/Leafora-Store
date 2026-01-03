@@ -279,7 +279,7 @@
     font-size: 25px;
   }
   .list-of-product{
-    font-size: 10px;
+    gap: 6px;
   }
   .product-btn{
     font-size: 15px;
@@ -288,13 +288,56 @@
   .all-product{
     grid-template-columns: 1px 1px;
     margin-left: 0;
-    column-gap: 213px;
+    column-gap: 208px;
   }
   .product-list {
     width: 150px;
-    height: 230px;
+    height: 220px;
   }
   .product-image {
     width: 120px;
   }
+.ima{
+    margin-bottom: -80px;
+  }
+  /* -----------------------middleside------------------------------------------- */
+  .middleside{
+    overflow: visible;
+    margin-top: 240px;
+  }
+  .who-we{
+    display: flex;
+    flex-direction: column;
+    margin-top: 500px;
+    /* align-items: unset; */
+  }
+  .secured-before {
+    margin-left: 50px;
+  }
+  .manholding{
+    width: 470px;
+    margin-top: 60px;
+    /* margin-right: 460px; */
+  }
+  .us{
+    margin-left: 60px;
+  }
+  /*         <!-- ------------------------simple card-------------------------- -->
+ */
+  .card-items{
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .card-images{
+     width: 400px;
+   }
+    .card-name{
+      font-size: 20px;
+      bottom: 130px;
+    }
+     .learn-more{
+      bottom: 90px;
+     }
+     /*         <!------------------------- trending product -----------------------> */
+
 }
