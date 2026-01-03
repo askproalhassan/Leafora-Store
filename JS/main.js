@@ -1,18 +1,28 @@
 // making a dropdown for the navigation
 const dropdown = () => {
-  const arrow = document.querySelectorAll(".bx-chevron-up");
-  const dropdown = document.querySelectorAll("ul.dropdown");
+  // showing nav at media query
+  const menu = document.querySelector('.menu')
+  const exit = document.querySelector('.exit')
+  const nav = document.querySelector('nav')
+  menu.addEventListener('click',()=>{
+    nav.classList.remove('opened')
+     menu.style.visibility = 'hidden'
+     exit.style.visibility = 'visible'
+})
 
-  dropdown.forEach((list, listNumb) => {
-    list.addEventListener("click", () => {
-      console.log(list);
-      // list.classList.toggle('show')
-    });
-    //   arrow.forEach((element, index) => {
-    //   // first arrow
-    //   // second arrow
-    // });
-  });
+  exit.addEventListener('click',()=>{
+    nav.classList.add('opened')
+    menu.style.visibility = 'visible'
+    exit.style.visibility = 'hidden'
+})
+// increasing and decreasing the search
+  const search = document.querySelector('.search');
+  const searchIcon = document.querySelector('.bx-search');
+  const searchAndOthers = document.querySelector('.search-and-others');
+
+  searchIcon.addEventListener('click',()=>{
+    searchAndOthers.classList.toggle('search-width');
+  })
 };
 dropdown();
 function cart() {
@@ -203,7 +213,7 @@ function weekendDeals() {
         }
       });
 
-      // ===============time counddown===============================
+      // ===============time coundown===============================
 
       // const day = document.querySelector(".day");
       // const hour = document.querySelector(".hour");
@@ -328,128 +338,125 @@ function showingProductCategories() {
     const productList = document.querySelectorAll(".product-list");
     const popUp = document.querySelector(".pop-up");
     const poped = document.querySelector(".poped");
-    const productData = JSON.parse(localStorage.getItem('ProductData')) || [];
+    const productData = JSON.parse(localStorage.getItem("ProductData")) || [];
+    const allCardProduct = JSON.parse(localStorage.getItem("cartProduct")) || [];
+    let count = 0;
 
-     productList.forEach((productard,index) => {
+    productList.forEach((productard, index) => {
       let liking = productard.querySelectorAll(".bxs-heart");
       let carts = productard.querySelectorAll(".bx-cart");
 
-       //  to be stored
-       const productName = productard.querySelector(".product-name").innerText;
-       const productImg = productard.querySelector(".product-image").src;
-       const productPrice = productard.querySelector(".product-price").innerHTML;
-       const productRate = productard.querySelector(".product-rate").innerHTML;
+      //  to be stored
+      const productName = productard.querySelector(".product-name").innerText;
+      const productImg = productard.querySelector(".product-image").src;
+      const productPrice = productard.querySelector(".product-price").innerHTML;
+      const productRate = productard.querySelector(".product-rate").innerHTML;
 
-        
-        likeCount = 0;
+      likeCount = 0;
 
-        
-        liking.forEach((like) => {
-          // storing all product into one place
-          const productItem ={
-            id:index,
-            name:productName,
-            image:productImg,
-            price:productPrice,
-            rate:productRate
-          }
-          // restore active state on reload
-          if (productData.some(p => p.id === index)) {
+      liking.forEach((like) => {
+        // storing all product into one place
+        const productItem = {
+          id: index,
+          name: productName,
+          image: productImg,
+          price: productPrice,
+          rate: productRate,
+        };
+        // restore active state on reload
+        if (productData.some((p) => p.id === index)) {
+          like.classList.add("active1");
+          like.style.color = "black";
+        }
+
+        like.addEventListener("click", () => {
+          existingProduct = productData.findIndex((p) => p.id === index);
+          if (like.classList.contains("active1") || existingProduct !== -1) {
+            productData.splice(existingProduct, 1);
+            likeCount--;
+            like.classList.remove("active1");
+            like.style.color = "";
+            // showing unlike popup
+            setTimeout(() => {
+              popUp.classList.add("showing-popup");
+              poped.innerHTML = `You unliked ${productName}`;
+              setTimeout(() => {
+                popUp.classList.remove("showing-popup");
+              }, 3000);
+            }, 900);
+          } else {
+            likeCount++;
+            productData.push(productItem);
             like.classList.add("active1");
             like.style.color = "black";
+            // showing like popup
+            setTimeout(() => {
+              popUp.classList.add("showing-popup");
+              poped.innerHTML = `You liked ${productName}`;
+              setTimeout(() => {
+                popUp.classList.remove("showing-popup");
+              }, 3000);
+            }, 900);
           }
-
-          like.addEventListener("click", () => {
-            existingProduct = productData.findIndex(p => p.id === index);
-            if (like.classList.contains("active1") || existingProduct !== -1) {
-              productData.splice(existingProduct, 1);
-              likeCount--;
-              like.classList.remove("active1");
-              like.style.color = "";
-                // showing unlike popup
-              setTimeout(() => {
-                popUp.classList.add('showing-popup')
-                poped.innerHTML =`You unliked ${productName}`
-                setTimeout(()=>{
-                  popUp.classList.remove('showing-popup')
-                },3000)
-              }, 900);
-
-            } else {
-              likeCount++;
-              productData.push(productItem)
-              like.classList.add("active1");
-              like.style.color = "black";
-              // showing like popup
-              setTimeout(() => {
-                popUp.classList.add('showing-popup')
-                poped.innerHTML =`You liked ${productName}`
-                setTimeout(()=>{
-                  popUp.classList.remove('showing-popup')
-                },3000)
-              }, 900);
-            }
-            localStorage.setItem(`ProductData`, JSON.stringify(productData));
-            localStorage.setItem(`like`, likeCount);
-          });
+          localStorage.setItem(`ProductData`, JSON.stringify(productData));
+          localStorage.setItem(`like`, likeCount);
         });
-        // =================================================adding carts to the nav cart===========================================
-        const allCardProduct = JSON.parse(localStorage.getItem('cartProduct'))|| [];
-        let count = 0;
+      });
+      
+      // =================================================adding carts to the nav cart===========================================
+      carts.forEach((cart) => {
+        // storing product data
+        const cleanPrice = Number(productPrice.replace(/[^0-9.]/g, ""));
 
-        carts.forEach((cart) => {
+        const cartsProduct = {
+          id: index,
+          name: productName,
+          img: productImg,
+          price: cleanPrice,
+        };
 
-          // storing product data
-          const cleanPrice = Number(productPrice.replace(/[^0-9.]/g, ""));
+        if (allCardProduct.some((p) => p.id === index)) {
+          cart.classList.add("active2");
+          cart.style.backgroundColor = "rgb(18, 223, 18)";
+        }
+        cart.addEventListener("click", () => {
+          existingCartProduct = allCardProduct.findIndex((p) => p.id === index);
+          if (
+            cart.classList.contains("active2") ||
+            existingCartProduct !== -1
+          ) {
+            allCardProduct.splice(existingCartProduct, 1);
+            count--;
+            cart.classList.remove("active2");
+            cart.style.background = "";
+            cart.style.color = "";
 
-          
-          const cartsProduct = {
-            name:productName,
-            img:productImg,
-            price:cleanPrice
-          }
-          
-          if(allCardProduct.some(p => p.id === index )){
+            // showing unlike popup
+            setTimeout(() => {
+              popUp.classList.add("showing-popup");
+              poped.innerHTML = `You uncart ${productName}`;
+              setTimeout(() => {
+                popUp.classList.remove("showing-popup");
+              }, 3000);
+            }, 900);
+          } else {
+            count++;
+            allCardProduct.push(cartsProduct);
             cart.classList.add("active2");
             cart.style.backgroundColor = "rgb(18, 223, 18)";
+            cart.style.color = "white";
+
+            // showing like popup
+            setTimeout(() => {
+              popUp.classList.add("showing-popup");
+              poped.innerHTML = `You cart ${productName}`;
+              setTimeout(() => {
+                popUp.classList.remove("showing-popup");
+              }, 3000);
+            }, 900);
           }
-          cart.addEventListener("click", () => {
-
-            existingCartProduct = allCardProduct.findIndex(p=>p.id === index);
-            if (cart.classList.contains("active2")  || existingCartProduct !== -1) {
-              allCardProduct.splice(existingCartProduct, 1)
-              // count--;
-              cart.classList.remove("active2");
-              cart.style.background = "";
-              cart.style.color = "";
-
-               // showing unlike popup
-              setTimeout(() => {
-                popUp.classList.add('showing-popup')
-                poped.innerHTML =`You uncart ${productName}`
-                setTimeout(()=>{
-                  popUp.classList.remove('showing-popup')
-                },3000)
-              }, 900);
-            }
-            else {
-              // count++;
-              allCardProduct.push(cartsProduct)
-              cart.classList.add("active2");
-              cart.style.backgroundColor = "rgb(18, 223, 18)";
-              cart.style.color = "white";
-
-                     // showing like popup
-              setTimeout(() => {
-                popUp.classList.add('showing-popup')
-                poped.innerHTML =`You cart ${productName}`
-                setTimeout(()=>{
-                  popUp.classList.remove('showing-popup')
-                },3000)
-              }, 900);
-            }
-            localStorage.setItem('cartProduct',JSON.stringify(allCardProduct))
-           localStorage.setItem("cart", JSON.parse(count));
+          localStorage.setItem("cartProduct", JSON.stringify(allCardProduct));
+          //  localStorage.setItem("cart", JSON.parse(count));
         });
       });
     });
@@ -502,17 +509,17 @@ const middleSide = () => {
       })
     );
   // making animational view point for middle side
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(enter=>{
-      if(enter.isIntersecting){
-        aboutUs.classList.add('fade-left')
-        man.classList.add('man-animation')
-        us.classList.add('us-animation')
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((enter) => {
+      if (enter.isIntersecting) {
+        aboutUs.classList.add("fade-left");
+        man.classList.add("man-animation");
+        us.classList.add("us-animation");
       }
-    })
-  })
-  observer.observe(securedBefore)
-  observer.observe(man)
+    });
+  });
+  observer.observe(securedBefore);
+  observer.observe(man);
 };
 middleSide();
 
@@ -601,12 +608,11 @@ function testimonial() {
     current = (current - 1 + testimonial.length) % testimonial.length;
     showTestimonial();
   });
-  testimonialArrowsRight
-    .addEventListener("click", () => {
-      current = (current + 1) % testimonial.length;
-      showTestimonial();
-    })
-    // .catch((err) => console.error(err));
+  testimonialArrowsRight.addEventListener("click", () => {
+    current = (current + 1) % testimonial.length;
+    showTestimonial();
+  });
+  // .catch((err) => console.error(err));
 }
 testimonial();
 
@@ -614,13 +620,13 @@ testimonial();
 
 function blog() {
   const blog = document.querySelector(".blog-list");
-  fetch('JSONS/blog.json')
-    .then(res => res.json())
-    .then(data=>{
-      data.forEach((ele,ind)=>{
-        posterin = ele.postedInfo[0]
-        const blogList = document.createElement('div');
-        blogList.className='bloglist';
+  fetch("JSONS/blog.json")
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach((ele, ind) => {
+        posterin = ele.postedInfo[0];
+        const blogList = document.createElement("div");
+        blogList.className = "bloglist";
         blogList.innerHTML = `
                               <div class='img-border'>
                                 <img src='${ele.image}' class='blog-image'>
@@ -631,9 +637,9 @@ function blog() {
                               </div>
                               <h3 class='blog-info'>${ele.info}</h3>
                               <button class='blog-red'>Read More<i class='bx bx-right-arrow-alt'></i></button>
-                `
-        blog.append(blogList)
-      })
+                `;
+        blog.append(blogList);
+      });
     })
     .catch((err) => console.error(err));
 }

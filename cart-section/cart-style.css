@@ -196,16 +196,86 @@ input.search {
   margin-top: -1px;
 }
 /* --------------------------------------------------liked styling---------------------------------------------------- */
+.your-info{
+  display: flex;
+  gap: 80px;
+}
 .vegetable-products{
-  border: 2px solid;
-    width: 80%;
-      margin: 30px 0 30px 150px;
+  width: 98%;
+  margin: 30px 0 30px 10px;
   padding: 20px;
 
 }
+.total-price{
+  width: 20%;
+  border: 1px solid;
+  margin: 30px 0 30px 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap:  20px;
+  border-radius: 7px;
+  height: 40vh;
+  /* position: static; */
+
+  /* sub elements */
+  h3{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  h4{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(77, 75, 75);
+    font-size: 17px;
+    span{
+      color:black;
+      font-size: 18px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+  }
+  .total{
+    margin-top: 20px;
+    position: relative;
+    span{
+      font-size: 20px;
+    }
+  }
+   .total::after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: rgb(145, 142, 142);
+    left: 0;
+    bottom: 40px;
+    position: absolute;
+
+   }
+  button{
+    padding: 18px;
+    font-size: 17px;
+    font-family: 'poppin',sans-serif;
+    font-weight: bold;
+    background: rgb(24, 153, 185);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .3s ease;
+  }
+  button:hover{
+    background: rgb(55, 184, 216);
+  }
+}
+.boxShadow{
+  box-shadow: 1px 1px 9px rgba(172, 170, 170, 0.637);
+}
+.not{
+  text-align: center;
+}
 .status{
   display: flex;
-  gap: 170px;
+  gap: 177px;
   h3{
     font-family: 'Courier New', Courier, monospace;
     font-size: 17px;
@@ -223,7 +293,7 @@ input.search {
 }
 .product-bay{
   display: flex;
-  gap: 190px;
+  gap: 160px;
   align-items: center;
 
 }
@@ -232,6 +302,7 @@ input.search {
   gap: 20px;
   align-items: center;
   margin-right: 50px;
+  width: 250px;
   h3{
     font-size: 16px;
     font-family: 'poppin',sans-serif;
@@ -267,6 +338,7 @@ input.search {
 }
 .product-delete{
   width: 25px;
+  cursor: pointer;
 }
 .remove{
   padding: 5px;

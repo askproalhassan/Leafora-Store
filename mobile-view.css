@@ -1,0 +1,265 @@
+
+@media (max-width: 600px) {
+
+  .navbar {
+    position: relative;
+    width: 100%;
+  }
+  nav {
+    margin: unset;
+    
+  }
+  .logo {
+    width: 100px;
+  }
+  .menu{
+    position: absolute;
+    font-size: 35px;
+    color: white;
+    right: 0;
+    bottom: 19px;
+    z-index: 100;
+
+  }
+  .exit{
+    position: absolute;
+    font-size: 35px;
+    color: white;
+    right: 0;
+    bottom: 19px;
+    z-index: 100;
+  }
+
+  nav ul.unorder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-right: 50px;
+    position: absolute;
+    right: -8px;
+    top: 50px;
+    z-index: 1;
+  }
+  ul.unorder li a{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+/* dropdown */
+.curver-up{
+    width: 190px;
+    height: 39vh;
+    background-color: rgba(43, 41, 41, 0.849);
+    border: 1px solid;
+    border-radius: 7px;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    z-index: 1;
+}
+  ul.dropdown {
+    right: 70px;
+    width: 190px;
+    z-index: 100;
+  }
+  nav ul.unorder:hover {
+    i {
+      transform: rotate(270deg);
+    }
+  }
+  /* search and others */
+  .search-and-others {
+    gap: 10px;
+    margin-right: 60px;
+  }
+  input.search {
+    width: 27px;
+    margin-right: -50px;
+    /* height: 59px; */
+    transition: .3s ease;
+  }
+  .search-width input.search{
+    width: 150px;
+    transform-origin: right;
+    transition: .3s ease;
+  }
+   .search-width .bx-search{
+    left: 126px;
+    transition: .3s ease;
+   }
+  .search-width input.search::placeholder{
+    color: black;
+  }
+  input.search::placeholder{
+    color: white;
+  }
+  .bx-search{
+    left: 2px;
+    position: absolute;
+  }
+  .profile-likes-carts {
+    gap: 10px;
+    position: absolute;
+    top:  190px;
+    right: -40px;
+    z-index: 1;
+  }
+  .ic {
+    gap: 10px;
+  }
+  /* nav showing */
+ .opened .profile-likes-carts,
+  .opened .curver-up,
+    .opened .unorder {
+    visibility: hidden;
+    transition:  .4s ease;
+  }
+  /* location */
+  .info-bar{
+    width: 99%;
+    padding: 10px 2px;
+    gap: 10px;
+  }
+  .my-info,
+.my-location{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: unset;
+    h3{
+        font-size: 12px;
+        width: fit-content;
+    }
+}
+/* -------------------------------- intro-----------------------------------------*/
+   .intro {
+    display: flex;
+    flex-direction: column-reverse;
+    width:100%;
+    height: fit-content;
+    margin-left: 0;
+   }
+    .top-catigories{
+        width: 100%;
+        height: 560px;
+    }
+    .we-provide {
+        width: 100%;
+        height: 80vh;
+    }
+    .category{
+        font-size: 18px;
+    }
+    .for{
+        font-size: 14px;
+    }
+    img.c-img{
+        width: 40px;
+        height: 40px;
+    }
+    .categories{
+        gap: 30px;
+        margin-left: 10px;
+        margin-top: 36px;
+    }
+    .int{
+        margin-right: 50px;
+    }
+    .element-name{
+        font-size: 16px;
+    }
+    .element-about {
+        font-size: 13px;
+    }
+    .basket {
+        width: 100px;
+        height: 120px;
+    }
+    /* right side */
+    .title{
+        font-size: 36px;
+
+    }
+  /*---------------------------------- carocell ---------------------------------*/
+    .top-offer{
+        font-size: 18px;
+    }
+    .carocel{
+        margin-left: 10px;
+        width: 96%;
+    }
+    .item-img {
+        width: 220px;
+        height: 230px;
+    }
+    .onion,
+    .pepper,
+    .b-pepper{
+        display: none;
+    }
+/* /*       <!---------------------------------------Home deal  ---------------------------------> */
+    .home-deal{
+        margin-top: 40px;
+        border: 2px solid;
+    }
+    .week{
+        font-size: 28px;
+    }
+    .hurry{
+          font-size: 13px;
+    }
+    .deal-carocel {
+        gap: 50px;
+        align-items:center;
+        
+    }
+    .deal-border{
+        width: 300px;
+        height: 240px;
+        position: relative;
+        right: 60px;
+    }
+    .timmer{
+        gap: 15px;
+        bottom: 300px;
+        z-index: 1;
+        left: 80px;
+    }
+    .timmer h4{
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+          padding: 18px;
+
+    }
+    .deal-image{
+        width: 400px;
+    }
+    .deal-name{
+        margin-top: 14px;
+        font-size: 19px;
+    }
+    .deal-discripton{
+        font-size: 14px;
+    }
+    .deal-price{
+        font-size: 16px;
+    }
+    .shop{
+        top: -63px;
+        left: 80px;
+        padding: 12px 56px 14px 20px;
+    }
+    .arrows{
+        top: 276%;
+        gap: 290px;
+        left: 05%;
+        i{
+            padding: 15px;
+            font-size: 17px;
+        }
+    }
+    /* // <!-- -------------------------------our produt quality --------------------------------> */
+
+}

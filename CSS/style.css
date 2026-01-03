@@ -42,7 +42,10 @@ ul.unorder li a {
   color: white;
   position: relative;
 }
-
+.menu{
+  visibility: hidden;
+  cursor: pointer;
+}
 /* dropdown */
 ul.dropdown {
   display: flex;

@@ -43,9 +43,9 @@ function previewingVegetables(){
                 const id = card.dataset.id;
                 
                 productData = productData.filter(p => p.id !== id)
-                localStorage.removeItem('ProductData',JSON.stringify(productData))
+                localStorage.getItem('ProductData',JSON.stringify(productData))
                 card.remove()
-                myLike--
+                localStorage.getItem('like',like)
             })
         })
     }
