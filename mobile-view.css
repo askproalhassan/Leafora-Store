@@ -1,27 +1,23 @@
-
 @media (max-width: 600px) {
-
   .navbar {
     position: relative;
     width: 100%;
   }
   nav {
     margin: unset;
-    
   }
   .logo {
     width: 100px;
   }
-  .menu{
+  .menu {
     position: absolute;
     font-size: 35px;
     color: white;
     right: 0;
     bottom: 19px;
     z-index: 100;
-
   }
-  .exit{
+  .exit {
     position: absolute;
     font-size: 35px;
     color: white;
@@ -41,13 +37,13 @@
     top: 50px;
     z-index: 1;
   }
-  ul.unorder li a{
+  ul.unorder li a {
     display: flex;
     flex-direction: row-reverse;
   }
-  
-/* dropdown */
-.curver-up{
+
+  /* dropdown */
+  .curver-up {
     width: 190px;
     height: 39vh;
     background-color: rgba(43, 41, 41, 0.849);
@@ -57,7 +53,7 @@
     right: 0;
     top: 12px;
     z-index: 1;
-}
+  }
   ul.dropdown {
     right: 70px;
     width: 190px;
@@ -77,31 +73,31 @@
     width: 27px;
     margin-right: -50px;
     /* height: 59px; */
-    transition: .3s ease;
+    transition: 0.3s ease;
   }
-  .search-width input.search{
+  .search-width input.search {
     width: 150px;
     transform-origin: right;
-    transition: .3s ease;
+    transition: 0.3s ease;
   }
-   .search-width .bx-search{
+  .search-width .bx-search {
     left: 126px;
-    transition: .3s ease;
-   }
-  .search-width input.search::placeholder{
+    transition: 0.3s ease;
+  }
+  .search-width input.search::placeholder {
     color: black;
   }
-  input.search::placeholder{
+  input.search::placeholder {
     color: white;
   }
-  .bx-search{
+  .bx-search {
     left: 2px;
     position: absolute;
   }
   .profile-likes-carts {
     gap: 10px;
     position: absolute;
-    top:  190px;
+    top: 190px;
     right: -40px;
     z-index: 1;
   }
@@ -109,157 +105,196 @@
     gap: 10px;
   }
   /* nav showing */
- .opened .profile-likes-carts,
+  .opened .profile-likes-carts,
   .opened .curver-up,
-    .opened .unorder {
+  .opened .unorder {
     visibility: hidden;
-    transition:  .4s ease;
+    transition: 0.4s ease;
   }
   /* location */
-  .info-bar{
+  .info-bar {
     width: 99%;
     padding: 10px 2px;
     gap: 10px;
   }
   .my-info,
-.my-location{
+  .my-location {
     display: flex;
     flex-direction: column;
     gap: 2px;
     align-items: unset;
-    h3{
-        font-size: 12px;
-        width: fit-content;
+    h3 {
+      font-size: 12px;
+      width: fit-content;
     }
-}
-/* -------------------------------- intro-----------------------------------------*/
-   .intro {
+  }
+  /* -------------------------------- intro-----------------------------------------*/
+  .intro {
     display: flex;
     flex-direction: column-reverse;
-    width:100%;
+    width: 100%;
     height: fit-content;
     margin-left: 0;
-   }
-    .top-catigories{
-        width: 100%;
-        height: 560px;
-    }
-    .we-provide {
-        width: 100%;
-        height: 80vh;
-    }
-    .category{
-        font-size: 18px;
-    }
-    .for{
-        font-size: 14px;
-    }
-    img.c-img{
-        width: 40px;
-        height: 40px;
-    }
-    .categories{
-        gap: 30px;
-        margin-left: 10px;
-        margin-top: 36px;
-    }
-    .int{
-        margin-right: 50px;
-    }
-    .element-name{
-        font-size: 16px;
-    }
-    .element-about {
-        font-size: 13px;
-    }
-    .basket {
-        width: 100px;
-        height: 120px;
-    }
-    /* right side */
-    .title{
-        font-size: 36px;
-
-    }
+  }
+  .top-catigories {
+    width: 100%;
+    height: 560px;
+  }
+  .we-provide {
+    width: 100%;
+    height: 80vh;
+  }
+  .category {
+    font-size: 18px;
+  }
+  .for {
+    font-size: 14px;
+  }
+  img.c-img {
+    width: 40px;
+    height: 40px;
+  }
+  .categories {
+    gap: 30px;
+    margin-left: 10px;
+    margin-top: 36px;
+  }
+  .int {
+    margin-right: 50px;
+  }
+  .element-name {
+    font-size: 16px;
+  }
+  .element-about {
+    font-size: 13px;
+  }
+  .basket {
+    width: 100px;
+    height: 120px;
+  }
+  /* right side */
+  .title {
+    font-size: 36px;
+  }
   /*---------------------------------- carocell ---------------------------------*/
-    .top-offer{
-        font-size: 18px;
+  .top-offer {
+    font-size: 18px;
+  }
+  .carocel {
+    margin-left: 10px;
+    width: 96%;
+  }
+  .item-img {
+    width: 190px;
+    height: 200px;
+  }
+  .onion,
+  .pepper,
+  .b-pepper {
+    display: none;
+  }
+  /* /*       <!---------------------------------------Home deal  ---------------------------------> */
+  .home-deal {
+    margin-top: 160px;
+  }
+  .week {
+    font-size: 28px;
+  }
+  .hurry {
+    font-size: 13px;
+  }
+  .deal-carocel {
+    gap: 50px;
+    align-items: center;
+  }
+  .deal-border {
+    width: 300px;
+    height: 240px;
+    position: relative;
+    right: 60px;
+  }
+  .timmer {
+    gap: 15px;
+    bottom: 300px;
+    z-index: 1;
+    left: 80px;
+  }
+  .timmer h4 {
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    padding: 18px;
+  }
+  .deal-image {
+    width: 400px;
+  }
+  .deal-name {
+    margin-top: 14px;
+    font-size: 19px;
+  }
+  .deal-discripton {
+    font-size: 14px;
+  }
+  .deal-price {
+    font-size: 16px;
+  }
+  .shop {
+    top: -63px;
+    left: 80px;
+    padding: 12px 56px 14px 20px;
+  }
+  .arrows {
+    top: 276%;
+    gap: 200px;
+    left: 05%;
+    i {
+      padding: 15px;
+      font-size: 17px;
     }
-    .carocel{
-        margin-left: 10px;
-        width: 96%;
-    }
-    .item-img {
-        width: 220px;
-        height: 230px;
-    }
-    .onion,
-    .pepper,
-    .b-pepper{
-        display: none;
-    }
-/* /*       <!---------------------------------------Home deal  ---------------------------------> */
-    .home-deal{
-        margin-top: 40px;
-        border: 2px solid;
-    }
-    .week{
-        font-size: 28px;
-    }
-    .hurry{
-          font-size: 13px;
-    }
-    .deal-carocel {
-        gap: 50px;
-        align-items:center;
-        
-    }
-    .deal-border{
-        width: 300px;
-        height: 240px;
-        position: relative;
-        right: 60px;
-    }
-    .timmer{
-        gap: 15px;
-        bottom: 300px;
-        z-index: 1;
-        left: 80px;
-    }
-    .timmer h4{
-        font-size: 10px;
-        width: 20px;
-        height: 20px;
-          padding: 18px;
-
-    }
-    .deal-image{
-        width: 400px;
-    }
-    .deal-name{
-        margin-top: 14px;
-        font-size: 19px;
-    }
-    .deal-discripton{
-        font-size: 14px;
-    }
-    .deal-price{
-        font-size: 16px;
-    }
-    .shop{
-        top: -63px;
-        left: 80px;
-        padding: 12px 56px 14px 20px;
-    }
-    .arrows{
-        top: 276%;
-        gap: 290px;
-        left: 05%;
-        i{
-            padding: 15px;
-            font-size: 17px;
-        }
-    }
-    /* // <!-- -------------------------------our produt quality --------------------------------> */
-
+  }
+  /* // <!-- -------------------------------our produt quality --------------------------------> */
+  .product-quality-carocel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .quality-title {
+    font-size: 16px;
+  }
+  .quality-image {
+    width: 50px;
+    padding: 15px;
+  }
+  .bord {
+    border: 2px dashed chocolate;
+    padding: 20px 10px 20px;
+    width: 160px;
+    height: 110px;
+  }
+  .dashes {
+    visibility: hidden;
+  }
+  /*        <!-----------------------------------home farm product  ---------------------------> */
+  h3.product-intro{
+    font-size: 25px;
+  }
+  .list-of-product{
+    font-size: 10px;
+  }
+  .product-btn{
+    font-size: 15px;
+  }
+    /* styling card */
+  .all-product{
+    grid-template-columns: 1px 1px;
+    margin-left: 0;
+    column-gap: 213px;
+  }
+  .product-list {
+    width: 150px;
+    height: 230px;
+  }
+  .product-image {
+    width: 120px;
+  }
 }

@@ -797,6 +797,7 @@ img.c-img {
   margin-top: 60px;
   background: rgba(167, 235, 247, 0.363);
   height: 120vh;
+  padding-top: 40px;
 }
 h3.product-intro {
   text-align: center;
